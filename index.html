@@ -6,26 +6,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>the game of numbers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>Secam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="style.css" rel="stylesheet">
+    <meta name="author" content="Viorel Stefan">
+
+
+
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <meta name="author" content="Viorel">
+    
+    
+    
 </head>
 <body>
 <div id="begin">
     <br><br>
-    <h1 class="text-center text-primary">The game of numbers</brh1>
+    <h1 id="title">Secam</h1>
         <div id="info">
-            <button type="button" id="playButton" class="btn btn-primary btn-lg btn-block">Play</button>
-            <button type="button" id="levelButton" class="btn btn-danger btn-lg btn-block"
+            <button type="button" id="playButton" class="button">Play</button>
+            <button type="button" id="levelButton" class="button"
                     onclick="alert('In development')">Difficulty
             </button>
-            <button type="button" id="helpButton" class="btn btn-info btn-lg btn-block">Help</button>
+            <button type="button" id="helpButton" class="button">Help</button>
         </div>
 </div>
 <div id="gamePlace" class="part">
@@ -82,6 +84,7 @@
         <h1 id="lose" class="text-center text-danger">You lose&nbsp;<i class="fas fa-frown"></i></h1>
     </div>
 </div>
+
 <div id="help" class="part">
     <div class="topBar" style="background-color:#e6e8e3">
         <h2 class="text-center text-primary">How to play</h2>
@@ -98,5 +101,6 @@
         <button class="btn btn-primary btn-lg btn-block" id="helpBack">Menu</button>
     </div>
 </div>
+<script src="app.js"></script>
 </body>
 </html>

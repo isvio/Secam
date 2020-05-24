@@ -1,21 +1,25 @@
-jQuery(function () {
-    $("#playButton").on("click", function () {
-        $("#begin").hide();
-        $("#gamePlace").show();
-        $("#c11,#c21,#c22").css("background-color", "#4481ba");
-        $("#c12,#c13,#c23").css("background-color", "#92b789");
-        $("#c31,#c32").css("background-color", "#602b24");
-        $("#c33").css("background-color", "#b7758f");
-    });
 
-    $("#helpButton").on("click", function () {
-        $("#begin").hide();
-        $("#help").show();
-        $("#helpBack").on("click", function () {
-            $("#help").hide();
-            $("#begin").show();
-        })
-    })
+let homePage = document.getElementById("begin");
+let gamePage = document.getElementById("gamePlace");
+let helpPage = document.getElementById("help");
+
+let playButtonClick = document.getElementById("playButton");
+let helpButtonClick = document.getElementById("helpButton");
+let helpBackButtonClick = document.getElementById("helpBack");
+
+playButtonClick.addEventListener("click", function() {
+    homePage.style.display = "none";
+    gamePage.style.display = "block;"
+})
+
+helpButtonClick.addEventListener("click", function() {
+    homePage.style.display = "none";
+    helpPage.style.display = "block";
+});
+
+helpBackButtonClick.addEventListener("click", function() {
+    helpPage.style.display = "none";
+    homePage.style.display = "block";
 });
 
 function condition(x, y, z) {

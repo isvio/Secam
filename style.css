@@ -1,16 +1,21 @@
 body, html {
     margin: 0;
-    font-family: ubuntu, sans-serif;
+    font-family: sans-serif;
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
 }
 
 #begin {
-    background: url("https://images.pexels.com/photos/1587/blurred-background.jpg?w=940&h=650&auto=compress&cs=tinysrgb") no-repeat center;
+    background: url("https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center;
     background-size: cover;
     position: relative;
     height: 100%;
+}
+
+#title {
+    text-align: center;
+    color: #fff;
 }
 
 #info {
@@ -22,6 +27,30 @@ body, html {
     font-family: 'ubuntu', cursive;
 }
 
+.button {
+    display: block;
+    width: 180px;
+    height: 40px;
+    margin: 10px;
+    border: none;
+    cursor: hand;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+#playButton {
+    background-color: #4481ba;
+
+}
+
+#levelButton {
+    background-color: firebrick;
+}
+
+#helpButton {
+    background-color: #602b24;
+}
 .part {
     display: none;
 }
