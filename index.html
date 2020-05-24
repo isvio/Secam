@@ -1,0 +1,102 @@
+<!--THIS CODE IS IN DEVELOPMENT-->
+<!-- inspiration from a book with games made by
+     Naumann & Gobel Verlagsgesellschaft mbH
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the game of numbers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <meta name="author" content="Viorel">
+</head>
+<body>
+<div id="begin">
+    <br><br>
+    <h1 class="text-center text-primary">The game of numbers</brh1>
+        <div id="info">
+            <button type="button" id="playButton" class="btn btn-primary btn-lg btn-block">Play</button>
+            <button type="button" id="levelButton" class="btn btn-danger btn-lg btn-block"
+                    onclick="alert('In development')">Difficulty
+            </button>
+            <button type="button" id="helpButton" class="btn btn-info btn-lg btn-block">Help</button>
+        </div>
+</div>
+<div id="gamePlace" class="part">
+    <div class="topBar">
+        <h2 style="color:#fff">&nbsp;Level 1</h2>
+    </div>
+    <h2 class="text-center"><span id="sum1">13</span> <span id="sum2">8</span> <span id="sum3">5</span> <span id="sum4">6</span>
+    </h2>
+    <div class="container">
+        <table>
+            <tr>
+                <td>
+                    <div class="content"><input type="number" maxlength="1" id="c11"></div>
+                </td>
+                <td>
+                    <div class="content"><input type="number" maxlength="1" id="c12"></div>
+                </td>
+                <td>
+                    <div class="content"><input type="number" maxlength="1" id="c13"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="content"><input type="number" maxlength="1" id="c21"></div>
+                </td>
+                <td>
+                    <div class="content"><input type="number" maxlength="1" value="2" disabled id="c22"></div>
+                </td>
+                <td>
+                    <div class="content"><input type="number" maxlength="1" id="c23"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class=" content"><input type="number" maxlength="1" id="c31"></div>
+                </td>
+                <td>
+                    <div class="content"><input type="number" maxlength="1" id="c32"></div>
+                </td>
+                <td>
+                    <div class="content"><input type="number" maxlength="1" id="c33"></div>
+                </td>
+            </tr>
+        </table>
+        <div id="life">
+            <i class="fas fa-heartbeat" id="life3"></i>
+            <i class="fas fa-heartbeat" id="life2"></i>
+            <i class="fas fa-heartbeat" id="life1"></i>
+        </div>
+        <br>
+        <button class="btn btn-primary btn-lg btn-block" onclick="game()" id="verify">Done</button>
+        <h1 id="win" class="text-center text-success">You win&nbsp;<i class="fas fa-trophy" style="color:#f4db1a"></i>
+        </h1>
+        <h1 id="lose" class="text-center text-danger">You lose&nbsp;<i class="fas fa-frown"></i></h1>
+    </div>
+</div>
+<div id="help" class="part">
+    <div class="topBar" style="background-color:#e6e8e3">
+        <h2 class="text-center text-primary">How to play</h2>
+    </div>
+    <div class="container">
+        <hr>
+        <p>Fill in the table below, so that only one digit from 1 to 6 appears on each row and each column.</p>
+        <p>The numbers collapsed above the tables represent the sum of the quotes in the section with the same
+            color.</p>
+        <p>Note: the numbers can be repeated in the card of a section, if they are entered on different rows or
+            columns.</p>
+        <h2 class="text-center">Good luck!</h2>
+        <hr>
+        <button class="btn btn-primary btn-lg btn-block" id="helpBack">Menu</button>
+    </div>
+</div>
+</body>
+</html>

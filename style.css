@@ -1,0 +1,129 @@
+body, html {
+    margin: 0;
+    font-family: ubuntu, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+
+#begin {
+    background: url("https://images.pexels.com/photos/1587/blurred-background.jpg?w=940&h=650&auto=compress&cs=tinysrgb") no-repeat center;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+}
+
+#info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    font-family: 'ubuntu', cursive;
+}
+
+.part {
+    display: none;
+}
+
+#help {
+    color: #424242;
+}
+
+#help p {
+    font-size: 18px;
+}
+
+table {
+    border: 1px solid #424242;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.container {
+    width: 60%;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    width: 33.33%;
+    position: relative;
+}
+
+td:after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+}
+
+td .content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#sum1 {
+    color: #4481ba;
+}
+
+#sum2 {
+    color: #92b789;
+}
+
+#sum3 {
+    color: #602b24;
+}
+
+#sum4 {
+    color: #b7758f;
+}
+
+.fa-heartbeat {
+    color: #f00;
+    font-size: 30px;
+}
+
+#life {
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    opacity: 0.3;
+}
+
+.topBar {
+    width: 100%;
+    height: 45px;
+    background-color: #4677af;
+}
+
+#win {
+    display: none;
+    color: red;
+}
+
+#lose {
+    display: none;
+}
+
+#again {
+    display: none;
+}
