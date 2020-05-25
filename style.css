@@ -43,6 +43,13 @@ body, html {
     border-radius: 10px;
 }
 
+.container {
+    position: absolute;
+    margin: auto;
+    left: 20%;
+
+}
+
 #playButton {
     background-color: #4481ba;
 
