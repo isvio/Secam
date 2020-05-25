@@ -13,6 +13,10 @@ body, html {
     height: 100%;
 }
 
+#gamePlace {
+    margin: auto;
+}
+
 #title {
     text-align: center;
     color: #fff;
@@ -55,8 +59,13 @@ body, html {
     display: none;
 }
 
+#topBar {
+    margin-top: 0px;
+}
+
 #help {
     color: #424242;
+    margin: 0;
 }
 
 #help p {

@@ -9,7 +9,7 @@ let helpBackButtonClick = document.getElementById("helpBack");
 
 playButtonClick.addEventListener("click", function() {
     homePage.style.display = "none";
-    gamePage.style.display = "block;"
+    gamePage.style.display = "block";
 })
 
 helpButtonClick.addEventListener("click", function() {
