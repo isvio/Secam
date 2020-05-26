@@ -22,6 +22,12 @@ helpBackButtonClick.addEventListener("click", function() {
     homePage.style.display = "block";
 });
 
+// test
+
+homePage.style.display = "none";
+
+helpPage.style.display = "block";
+
 function condition(x, y, z) {
     return !((x === y) && (y === z) && (x === z));
 }
