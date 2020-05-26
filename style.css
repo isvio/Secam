@@ -28,7 +28,7 @@ body, html {
     height: 40px;
     margin: 10px;
     border: none;
-    cursor: hand;
+    cursor: pointer;
     font-size: 15px;
     color: #fff;
     border-radius: 10px;
@@ -37,7 +37,7 @@ body, html {
 .container {
     position: absolute;
     margin: auto;
-    top: 50px;
+    top: 60px;
     left: 20%;
     width: 60%;
 }
@@ -47,6 +47,12 @@ body, html {
     top: 0px;
     width: 100%;
     height: 50px;
+    text-align: center;
+}
+
+#helpBack {
+    background-color: dimgrey;
+    color: #fff;
 }
 
 #playButton {
@@ -133,4 +139,10 @@ td .content {
 
 #sum4 {
     color: #b7758f;
+}
+
+#info {
+    position: absolute;
+    margin: auto;
+    left: 35%;
 }

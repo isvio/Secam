@@ -11,12 +11,6 @@
     <link href="style.css" rel="stylesheet">
     <meta name="author" content="Viorel Stefan">
 
-
-
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    
-    
-    
 </head>
 <body>
 <div id="begin">
@@ -24,12 +18,10 @@
     <h1 id="title">Secam</h1>
         <div id="info">
             <button type="button" id="playButton" class="button">Play</button>
-            <button type="button" id="levelButton" class="button"
-                    onclick="alert('In development')">Difficulty
-            </button>
             <button type="button" id="helpButton" class="button">Help</button>
         </div>
 </div>
+
 <div id="gamePlace" class="part">
     <div class="topBar">
         <h2 style="color:#fff">&nbsp;Level 1</h2>
@@ -76,9 +68,7 @@
 
         
         <button class="button" onclick="game()" id="verify">Done</button>
-        <h1 id="win">You win&nbsp;<i class="fas fa-trophy" style="color:#f4db1a"></i>
-        </h1>
-        <h1 id="lose">You lose&nbsp;<i class="fas fa-frown"></i></h1>
+
     </div>
 </div>
 
@@ -87,17 +77,18 @@
         <h2 class="text-center text-primary">How to play</h2>
     </div>
     <div class="container">
-        <hr>
+        
         <p>Fill in the table below, so that only one digit from 1 to 6 appears on each row and each column.</p>
         <p>The numbers collapsed above the tables represent the sum of the quotes in the section with the same
             color.</p>
         <p>Note: the numbers can be repeated in the card of a section, if they are entered on different rows or
             columns.</p>
         <h2 class="text-center">Good luck!</h2>
-        <hr>
+        
         <button class="button" id="helpBack">Menu</button>
     </div>
 </div>
+
 <script src="app.js"></script>
 </body>
 </html>
