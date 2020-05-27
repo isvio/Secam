@@ -36,10 +36,8 @@ body, html {
 }
 
 .container {
-    position: relative;
     width: 60%;
     margin: auto;
-    top: 60px;    
 }
 
 .topBar {
@@ -139,4 +137,14 @@ td .content {
     position: absolute;
     margin: auto;
     left: 35%;
+}
+
+#help {
+    background-color:#e6e8e3;
+    height: 100%;
+    margin: 0;
+}
+
+#help h2 {
+    text-align: center;
 }
