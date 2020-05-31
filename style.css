@@ -5,13 +5,8 @@ body, html {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
-}
-
-#begin {
-    background: url("https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center;
-    background-size: cover;
-    position: relative;
-    height: 100%;
+    background-color:#e6e8e3;
+    color: #424242;
 }
 
 #gamePlace {
@@ -20,33 +15,25 @@ body, html {
 
 #title {
     text-align: center;
-    color: #fff;
+    margin-bottom: 45px;
 }
 
 .button {
     display: block;
     width: 180px;
-    height: 40px;
-    margin: 10px;
+    height: 45px;
+    margin: auto;
+    margin-top: 18px;
     border: none;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .container {
     width: 60%;
     margin: auto;
-}
-
-.topBar {
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    color: dimgray;
 }
 
 /* help section */
@@ -57,12 +44,8 @@ body, html {
 }
 
 #playButton {
-    background-color: #4481ba;
+    background-color: #97abbe;
 
-}
-
-#levelButton {
-    background-color: firebrick;
 }
 
 #helpButton {
@@ -133,20 +116,7 @@ td .content {
     color: #b7758f;
 }
 
-#info {
-    position: absolute;
-    margin: auto;
-    left: 35%;
-}
-
-#help {
-    background-color:#e6e8e3;
-    height: 100%;
-    margin: 0;
-}
-
 #help h2 {
     text-align: center;
     height: 40px;
-    color: #424242;
 }
