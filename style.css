@@ -147,4 +147,6 @@ td .content {
 
 #help h2 {
     text-align: center;
+    height: 40px;
+    color: #424242;
 }

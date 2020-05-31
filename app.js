@@ -1,4 +1,5 @@
 
+
 let homePage = document.getElementById("begin");
 let gamePage = document.getElementById("gamePlace");
 let helpPage = document.getElementById("help");
@@ -24,9 +25,9 @@ helpBackButtonClick.addEventListener("click", function() {
 
 // test
 
-homePage.style.display = "none";
+//homePage.style.display = "none";
 
-helpPage.style.display = "block";
+//helpPage.style.display = "block";
 
 function condition(x, y, z) {
     return !((x === y) && (y === z) && (x === z));
