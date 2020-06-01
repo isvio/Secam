@@ -12,14 +12,15 @@
     <meta name="author" content="Viorel Stefan">
 </head>
 <body>
+
 <div id="begin">
     <br><br>
     <h1 id="title">Secam</h1>
-            <button type="button" id="playButton" class="button">Play</button>
-            <button type="button" id="helpButton" class="button">Help</button>
+        <button type="button" id="playButton" class="button">Play</button>
+        <button type="button" id="helpButton" class="button">Help</button>
 </div>
 
-<div id="gamePlace" class="part">
+<div id="game" class="part">
     <h2><span id="sum1">13</span> <span id="sum2">8</span> <span id="sum3">5</span> <span id="sum4">6</span>
     </h2>
     <div class="container">
@@ -59,20 +60,40 @@
             </tr>
         </table>
     </div>
-    <button class="button" onclick="game()" id="verify">Done</button>
+    <button class="button" onclick="solveGame()" id="verify">Done</button>
 </div>
 
 <div id="help" class="part">
     <br>
         <h2>How to play</h2>
     <div class="container">
-        <p>Fill in the table below, so that only one digit from 1 to 6 appears on each row and each column.</p>
+        <div id="help-text">
+            <p>Fill in the table below, so that only one digit from 1 to 6 appears on each row and each column.</p>
         <p>The numbers collapsed above the tables represent the sum of the quotes in the section with the same
             color.</p>
         <p>Note: the numbers can be repeated in the card of a section, if they are entered on different rows or
             columns.</p>
         <h2 class="text-center">Good luck!</h2>
-        
+        </div>
+        <div id="demo-gane">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
         <button class="button" id="helpBack">Menu</button>
         <button class="button" id="demo">Demo</button>
     </div>

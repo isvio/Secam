@@ -33,7 +33,7 @@ function condition(x, y, z) {
     return !((x === y) && (y === z) && (x === z));
 }
 
-function game() {
+function solveGame() {
     var
         num1 = document.getElementById("c11").value,
         num2 = document.getElementById("c12").value,
