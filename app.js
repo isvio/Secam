@@ -1,12 +1,13 @@
 
 
 let homePage = document.getElementById("begin");
-let gamePage = document.getElementById("gamePlace");
+let gamePage = document.getElementById("game");
 let helpPage = document.getElementById("help");
 
 let playButtonClick = document.getElementById("playButton");
 let helpButtonClick = document.getElementById("helpButton");
 let helpBackButtonClick = document.getElementById("helpBack");
+let verifySolutionButtonClick = document.getElementById("verify");
 
 playButtonClick.addEventListener("click", function () {
     homePage.style.display = "none";
@@ -23,14 +24,20 @@ helpBackButtonClick.addEventListener("click", function () {
     homePage.style.display = "block";
 });
 
-// test
-
 homePage.style.display = "none";
-helpPage.style.display = "block";
+    gamePage.style.display = "block";
 
 function condition(x, y, z) {
     return !((x === y) && (y === z) && (x === z));
 }
+
+verifySolutionButtonClick.addEventListener("click", function() {
+
+
+
+});
+
+  
 
 function checkSolutuin() {
     var
@@ -82,6 +89,7 @@ let textPlace = document.getElementById("help-text");
 let playDemoButton = document.getElementById("demo");
 
 playDemoButton.addEventListener("click", function playDemo() {
+    helpBackButtonClick.style.display = "none";
     textPlace.style.display = "none";
     document.getElementById("demo-game").style.display = "block";
     playDemoButton.style.display = "none";
@@ -131,6 +139,9 @@ playDemoButton.addEventListener("click", function playDemo() {
                                         document.getElementById("c8").innerHTML = 3;
                                         move9Button.style.display = "none";
                                         document.getElementById("finalDemoMessage").style.display = "block";
+                                        helpBackButtonClick.style.display = "block";
+                                        helpBackButtonClick.addEventListener("click", function() {
+                                        });
                                     });
                                 });
                             });
@@ -142,23 +153,3 @@ playDemoButton.addEventListener("click", function playDemo() {
     });
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
