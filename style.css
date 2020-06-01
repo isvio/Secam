@@ -45,8 +45,6 @@ body, html {
     margin: auto;
 }
 
-
-
 .container {
     width: 60%;
     margin: auto;
@@ -57,16 +55,17 @@ body, html {
     color: #fff;
 }
 
+#demo {
+    background-color: steelblue;
+    color: #fff;
+}
 
-
-
-/* game */
 table {
     border: 1px solid #424242;
     width: 100%;
 }
 
-input {
+#game input {
     width: 100%;
     height: 100%;
     border: none;
@@ -75,24 +74,21 @@ input {
     text-align: center;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+#game input[type=number]::-webkit-inner-spin-button,
+#game input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-table {
-    width: 100%;
-}
 
-td {
+ td {
     width: 33.33%;
     position: relative;
 }
 
 td:after {
     content: '';
-    display: block;
+    display: block; 
     margin-top: 100%;
 }
 
@@ -123,4 +119,53 @@ td .content {
 #help h2 {
     text-align: center;
     height: 40px;
+}
+
+
+#demo-game-table tr td {
+    border: 1px solid rebeccapurple;
+    color: #424242;
+    font-weight: bold;;
+    text-align: center;
+}
+
+#demo-game-table .content {
+    padding-top: 30%;;
+    font-size: 18px;
+}
+
+#demo-game p {
+    font-size: 18px;
+    color: #424242;
+    text-align: center;
+}
+
+.t11, .t12 {
+    background-color: #FFDEAD;
+}
+
+.t21, .t31, .t32 {
+    background-color: #ADD8E6;
+}
+
+.t22 {
+    background-color: #20B2AA;
+}
+
+.t13, .t23, .t33 {
+    background-color: #D3D3D3;
+}
+
+
+.next {
+    background-color: #c4a5a5;
+    color: #fff;
+    display: none;
+}
+
+#finalDemoMessage {
+    text-align: center;
+    padding: 10px;
+    font-size: 22px;
+    display: none;
 }

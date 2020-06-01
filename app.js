@@ -8,32 +8,31 @@ let playButtonClick = document.getElementById("playButton");
 let helpButtonClick = document.getElementById("helpButton");
 let helpBackButtonClick = document.getElementById("helpBack");
 
-playButtonClick.addEventListener("click", function() {
+playButtonClick.addEventListener("click", function () {
     homePage.style.display = "none";
     gamePage.style.display = "block";
 })
 
-helpButtonClick.addEventListener("click", function() {
+helpButtonClick.addEventListener("click", function () {
     homePage.style.display = "none";
     helpPage.style.display = "block";
 });
 
-helpBackButtonClick.addEventListener("click", function() {
+helpBackButtonClick.addEventListener("click", function () {
     helpPage.style.display = "none";
     homePage.style.display = "block";
 });
 
 // test
 
-//homePage.style.display = "none";
-
-//helpPage.style.display = "block";
+homePage.style.display = "none";
+helpPage.style.display = "block";
 
 function condition(x, y, z) {
     return !((x === y) && (y === z) && (x === z));
 }
 
-function solveGame() {
+function checkSolutuin() {
     var
         num1 = document.getElementById("c11").value,
         num2 = document.getElementById("c12").value,
@@ -78,3 +77,88 @@ function solveGame() {
         document.getElementById("lose").style.display = "block";
     }
 }
+
+let textPlace = document.getElementById("help-text");
+let playDemoButton = document.getElementById("demo");
+
+playDemoButton.addEventListener("click", function playDemo() {
+    textPlace.style.display = "none";
+    document.getElementById("demo-game").style.display = "block";
+    playDemoButton.style.display = "none";
+    let move1Button = document.getElementById("move1");
+    move1Button.style.display = "block";
+    move1Button.addEventListener("click", function () {
+        document.getElementById("c5").innerHTML = 1;
+        move1Button.style.display = "none";
+        let move2Button = document.getElementById("move2");
+        move2Button.style.display = "block";
+        move2Button.addEventListener("click", function () {
+            document.getElementById("c2").innerHTML = 2;
+            move2Button.style.display = "none";
+            let move3Button = document.getElementById("move3");
+            move3Button.style.display = "block";
+            move3Button.addEventListener("click", function () {
+                document.getElementById("c1").innerHTML = 1;
+                move3Button.style.display = "none";
+                let move4Button = document.getElementById("move4");
+                move4Button.style.display = "block";
+                move4Button.addEventListener("click", function () {
+                    document.getElementById("c3").innerHTML = 3;
+                    move4Button.style.display = "none";
+                    let move5Button = document.getElementById("move5");
+                    move5Button.style.display = "block";
+                    move5Button.addEventListener("click", function () {
+                        document.getElementById("c6").innerHTML = 2;
+                        move5Button.style.display = "none";
+                        let move6Button = document.getElementById("move6");
+                        move6Button.style.display = "block";
+                        move6Button.addEventListener("click", function () {
+                            document.getElementById("c4").innerHTML = 3;
+                            move6Button.style.display = "none";
+                            let move7Button = document.getElementById("move7");
+                            move7Button.style.display = "block";
+                            move7Button.addEventListener("click", function () {
+                                document.getElementById("c9").innerHTML = 1;
+                                move7Button.style.display = "none";
+                                let move8Button = document.getElementById("move8");
+                                move8Button.style.display = "block";
+                                move8Button.addEventListener("click", function () {
+                                    document.getElementById("c7").innerHTML = 2;
+                                    move8Button.style.display = "none";
+                                    let move9Button = document.getElementById("move9");
+                                    move9Button.style.display = "block";
+                                    move9Button.addEventListener("click", function () {
+                                        document.getElementById("c8").innerHTML = 3;
+                                        move9Button.style.display = "none";
+                                        document.getElementById("finalDemoMessage").style.display = "block";
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
