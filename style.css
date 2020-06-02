@@ -82,9 +82,11 @@ table {
 
 
  td {
-    width: 33.33%;
+    width: 16%;
     position: relative;
 }
+
+
 
 td:after {
     content: '';
