@@ -4,7 +4,7 @@ body, html {
     font-family: sans-serif;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color:#e6e8e3;
+    background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
     color: #424242;
 }
 
