@@ -38,6 +38,7 @@ body, html {
     background-color: #af9996;
 }
 
+
 .part {
     display: none;
 }
@@ -57,14 +58,19 @@ body, html {
     color: #fff;
 }
 
+#help-text {
+    font-size: 18px;
+}
+
 #demo {
     background-color: steelblue;
     color: #fff;
 }
 
-table {
+#game table {
     border: 1px solid #424242;
     width: 100%;
+    color: rgb(189, 129, 129);
 }
 
 #game input {
@@ -72,7 +78,7 @@ table {
     height: 100%;
     border: none;
     font-size: 28px;
-    color: #fff;
+    color: rgb(189, 129, 129);
     text-align: center;
 }
 

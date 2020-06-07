@@ -24,8 +24,8 @@ helpBackButtonClick.addEventListener("click", function () {
     homePage.style.display = "block";
 });
 
-//homePage.style.display = "none";
-  //  gamePage.style.display = "block";
+homePage.style.display = "none";
+gamePage.style.display = "block";
 
 function condition(x, y, z) {
     return !((x === y) && (y === z) && (x === z));
