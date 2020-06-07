@@ -58,11 +58,16 @@ verifySolutionButtonClick.addEventListener("click", function () {
 
 });
 
-let game = document.getElementsByClassName("content");
-for(var cell = 0; cell < game.length; cell++) {
-    game[cell].addEventListener("input", function() {
-        console.log("adaugi in tabel");
-    });
+let game = document.getElementById("game-table");
+
+game.addEventListener("input", function() {
+   // console.log(game.id);
+});
+
+function getID(e) {
+    console.log(e.target.id);
+    var x = e.target.id.toString();
+    console.log(x);
 }
 
 
