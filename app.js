@@ -27,17 +27,46 @@ helpBackButtonClick.addEventListener("click", function () {
 homePage.style.display = "none";
 gamePage.style.display = "block";
 
-function condition(x, y, z) {
-    return !((x === y) && (y === z) && (x === z));
+function condition(x, y) {
+    if (!(x === y)) {
+
+    }
 }
 
-verifySolutionButtonClick.addEventListener("click", function() {
+verifySolutionButtonClick.addEventListener("click", function () {
+    let mat = [];
+    let row = [];
+
+    for (var i = 0; i < 6; i++) {
+        mat[i] = new Array(6);
+    }
 
 
+
+    console.log(row);
+
+    for (var i = 0; i < 6; i++) {
+        for (var j = 0; j < 6; j++) {
+            var x = Math.floor((Math.random() * 6) + 1);
+            if (!mat[i].includes) {
+                mat[i][j] = x;
+            }
+        }
+    }
+
+  console.log(mat);
 
 });
 
-  
+let game = document.getElementsByClassName("content");
+for(var cell = 0; cell < game.length; cell++) {
+    game[cell].addEventListener("input", function() {
+        console.log("adaugi in tabel");
+    });
+}
+
+
+
 
 function checkSolutuin() {
     var
@@ -140,7 +169,7 @@ playDemoButton.addEventListener("click", function playDemo() {
                                         move9Button.style.display = "none";
                                         document.getElementById("finalDemoMessage").style.display = "block";
                                         helpBackButtonClick.style.display = "block";
-                                        helpBackButtonClick.addEventListener("click", function() {
+                                        helpBackButtonClick.addEventListener("click", function () {
                                         });
                                     });
                                 });

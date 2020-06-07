@@ -150,6 +150,13 @@ td .content {
     text-align: center;
 }
 
+#verify {
+    background-color: indianred;
+    font-weight: bold  ;
+    margin-top: 50px;
+    color: #f3e1e1;
+}
+
 .t11, .t12 {
     background-color: #FFDEAD;
 }
