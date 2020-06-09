@@ -67,7 +67,14 @@ game.addEventListener("input", function() {
 function getID(e) {
     console.log(e.target.id);
     var x = e.target.id.toString();
-    console.log(x);
+    console.log(x[0]);
+
+    let a = document.getElementById(e.target.id).value;
+    console.log(a);
+
+    let row = [];
+    row.push(a);
+
 }
 
 
