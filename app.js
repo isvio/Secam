@@ -89,9 +89,17 @@ function check_rowcol(rowcol_number, value, target) {
 }
 
 function generate_gane() {
-    let start_index_i =  Math.floor((Math.random() * 6) + 1);
-    let start_index_j =  Math.floor((Math.random() * 6) + 1);
+    let start_index_i =  Math.floor((Math.random() * 5) + 0);
+    let start_index_j =  Math.floor((Math.random() * 5) + 0);
+    console.log(start_index_i, start_index_j);
+
+    let start = document.getElementById((start_index_i + "" + start_index_i).toString());
+
+    start.style.color = "red";
+    start.value = Math.floor((Math.random() * 5) + 1);
 }
+
+generate_gane();
 
 function getID(e) {
     console.log(e.target.id);
