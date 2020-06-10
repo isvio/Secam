@@ -64,16 +64,96 @@ game.addEventListener("input", function() {
    // console.log(game.id);
 });
 
+let row0 = [], 
+    row1 = [],
+    row2 = [],
+    row3 = [],
+    row4 = [],
+    row5 = [];
+
+let col0 = [],
+    col1 = [],
+    col2 = [],
+    col3 = [],
+    col4 = [],
+    col5 = [];
+
+    let info_game = document.getElementById("info-game");
+
+    function check_rowcol(rowcol_number, value, target) {
+        if(rowcol_number[0] === value || rowcol_number[1] === value || rowcol_number[2] === value || rowcol_number[3] === value || rowcol_number[4] === value || rowcol_number[5] === value) {
+            document.getElementById(target).value = "";
+            info_game.innerHTML = "check row or column";
+            
+        } else {
+            rowcol_number.push(value);
+            info_game.innerHTML = "";
+        }
+    }
+
 function getID(e) {
     console.log(e.target.id);
     var x = e.target.id.toString();
-    console.log(x[0]);
+   // let pos = 
+  //  console.log(x[0]);
 
-    let a = document.getElementById(e.target.id).value;
-    console.log(a);
+    let input = document.getElementById(e.target.id).value;
+    
+  //  console.log(a);
 
-    let row = [];
-    row.push(a);
+   // let row;
+
+    switch(x[0]) {
+        case '0':
+            check_rowcol(row0, input, e.target.id);
+            break;
+        case '1':
+            check_rowcol(row1, input, e.target.id);
+            break;
+        case '2':
+            check_rowcol(row2, input, e.target.id);
+            break;
+        case '3':
+            check_rowcol(row3, input, e.target.id);
+            break;
+        case '4':
+            check_rowcol(row4, input, e.target.id);
+            break;
+        case '5':
+            check_rowcol(row5, input, e.target.id);
+            break;
+        default:
+            break;
+    }
+
+    switch(x[1]) {
+        case '0':
+            check_rowcol(col0, input, e.target.id);
+            break;
+        case '1':
+            check_rowcol(col1, input, e.target.id);
+            break;
+        case '2':
+            check_rowcol(col2, input, e.target.id);
+            break;
+        case '3':
+            check_rowcol(col3, input, e.target.id);
+            break;
+        case '4':
+            check_rowcol(col4, input, e.target.id);
+            break;
+        case '5':
+            check_rowcol(col5, input, e.target.id);
+            break;
+        default:
+            break;
+    }
+
+
+
+    console.log(row0);
+
+
 
 }
 

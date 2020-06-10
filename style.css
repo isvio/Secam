@@ -73,6 +73,14 @@ body, html {
     color: rgb(189, 129, 129);
 }
 
+#info-game {
+    font-size: 22px;
+    color: indianred;
+    font-weight: bold;
+    text-align: center;
+
+}
+
 #game input {
     width: 100%;
     height: 100%;
