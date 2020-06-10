@@ -95,7 +95,9 @@ function generate_gane() {
 
     let start = document.getElementById((start_index_i + "" + start_index_i).toString());
 
-    start.style.color = "red";
+    start.style.color = "#fff";
+    start.style.backgroundColor = "#424242";
+    start.style.opacity = 0.4;
     start.value = Math.floor((Math.random() * 5) + 1);
 }
 
