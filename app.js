@@ -54,17 +54,17 @@ verifySolutionButtonClick.addEventListener("click", function () {
         }
     }
 
-  console.log(mat);
+    console.log(mat);
 
 });
 
 let game = document.getElementById("game-table");
 
-game.addEventListener("input", function() {
-   // console.log(game.id);
+game.addEventListener("input", function () {
+    // console.log(game.id);
 });
 
-let row0 = [], 
+let row0 = [],
     row1 = [],
     row2 = [],
     row3 = [],
@@ -78,34 +78,32 @@ let col0 = [],
     col4 = [],
     col5 = [];
 
-    let info_game = document.getElementById("info-game");
+let info_game = document.getElementById("info-game");
 
-    function check_rowcol(rowcol_number, value, target) {
-        if(rowcol_number[0] === value || rowcol_number[1] === value || rowcol_number[2] === value || rowcol_number[3] === value || rowcol_number[4] === value || rowcol_number[5] === value) {
-            document.getElementById(target).value = "";
-            info_game.innerHTML = "check row or column";
-            
-        } else {
-            rowcol_number.push(value);
-            info_game.innerHTML = "";
+function check_rowcol(rowcol_number, value, target) {
+    if (rowcol_number[0] === value || rowcol_number[1] === value || rowcol_number[2] === value || rowcol_number[3] === value || rowcol_number[4] === value || rowcol_number[5] === value) {
+        document.getElementById(target).value = "";
+        info_game.innerHTML = "check row or column";
+
+    } else {
+        info_game.innerHTML = "";
+        rowcol_number.push(value);
+        if (document.getElementById(target).value != "") {
+            document.getElementById(target).disabled = "true";
         }
     }
+}
 
 function getID(e) {
     console.log(e.target.id);
     var x = e.target.id.toString();
-   // let pos = 
-  //  console.log(x[0]);
-
     let input = document.getElementById(e.target.id).value;
-    
-  //  console.log(a);
 
-   // let row;
 
-    switch(x[0]) {
+    switch (x[0]) {
         case '0':
             check_rowcol(row0, input, e.target.id);
+
             break;
         case '1':
             check_rowcol(row1, input, e.target.id);
@@ -126,7 +124,7 @@ function getID(e) {
             break;
     }
 
-    switch(x[1]) {
+    switch (x[1]) {
         case '0':
             check_rowcol(col0, input, e.target.id);
             break;
