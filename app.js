@@ -97,57 +97,41 @@ function randomColor() {
     return color;
 }
 
+
+
 function generate_gane() {
     let header = document.getElementsByTagName("header")[0];
-    let span = document.createElement("span");
+    
 
     let start_index_i_0 = Math.floor((Math.random() * 5) + 0);
     let start_index_j_0 = Math.floor((Math.random() * 5) + 0);
     console.log(start_index_i_0, start_index_j_0);
 
-    /*  let start_index_i_1 =  Math.floor((Math.random() * 5) + 0);
+     let start_index_i_1 =  Math.floor((Math.random() * 5) + 0);
      let start_index_j_1 =  Math.floor((Math.random() * 5) + 0);
-     console.log(start_index_i_1, start_index_j_1); */
+     console.log(start_index_i_1, start_index_j_1);
 
     let start0 = document.getElementById((start_index_i_0 + "" + start_index_j_0).toString());
     console.log(start0);
-    // let start1 = document.getElementById((start_index_i_1 + "" + start_index_i_1).toString());
+    let start1 = document.getElementById((start_index_i_1 + "" + start_index_j_1).toString());
+    console.log(start1);
 
 
+   createSolution(start0, header);
+   createSolution(start1, header);
+}
+
+function createSolution(start, pos) {
     let color = randomColor();
-    
+    let span = document.createElement("span");
     if (!(color === "#FFFF")) {
-        console.log(color);
-        start0.style.backgroundColor = color;
-        let val0 = Math.floor((Math.random() * 5) + 1);
-
-        let val = document.createTextNode(val0);
-
+        start.style.backgroundColor = color;
+        let value = Math.floor((Math.random() * 5) + 1);
+        let val = document.createTextNode(value);
         span.appendChild(val);
         span.style.color = color;
-        header.appendChild(span);
+        pos.appendChild(span);
     }
-
-
-
-
-  //  start1.style.color = randomColor();
-
-
-
-   /*  let val0 = Math.floor((Math.random() * 5) + 1);
-
-    let val = document.createTextNode(val0);
-
-    span.appendChild(val);
-    span.style.color = color;
-    header.appendChild(span);
-
-
-
-    start1.style.color = "#fff";
-    start1.style.opacity = 0.4;
-    start1.value = Math.floor((Math.random() * 5) + 1); */
 }
 
 generate_gane();
