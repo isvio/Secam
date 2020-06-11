@@ -88,17 +88,66 @@ function check_rowcol(rowcol_number, value, target) {
     }
 }
 
+function randomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 function generate_gane() {
-    let start_index_i =  Math.floor((Math.random() * 5) + 0);
-    let start_index_j =  Math.floor((Math.random() * 5) + 0);
-    console.log(start_index_i, start_index_j);
+    let header = document.getElementsByTagName("header")[0];
+    let span = document.createElement("span");
 
-    let start = document.getElementById((start_index_i + "" + start_index_i).toString());
+    let start_index_i_0 = Math.floor((Math.random() * 5) + 0);
+    let start_index_j_0 = Math.floor((Math.random() * 5) + 0);
+    console.log(start_index_i_0, start_index_j_0);
 
-    start.style.color = "#fff";
-    start.style.backgroundColor = "#424242";
-    start.style.opacity = 0.4;
-    start.value = Math.floor((Math.random() * 5) + 1);
+    /*  let start_index_i_1 =  Math.floor((Math.random() * 5) + 0);
+     let start_index_j_1 =  Math.floor((Math.random() * 5) + 0);
+     console.log(start_index_i_1, start_index_j_1); */
+
+    let start0 = document.getElementById((start_index_i_0 + "" + start_index_j_0).toString());
+    console.log(start0);
+    // let start1 = document.getElementById((start_index_i_1 + "" + start_index_i_1).toString());
+
+
+    let color = randomColor();
+    
+    if (!(color === "#FFFF")) {
+        console.log(color);
+        start0.style.backgroundColor = color;
+        let val0 = Math.floor((Math.random() * 5) + 1);
+
+        let val = document.createTextNode(val0);
+
+        span.appendChild(val);
+        span.style.color = color;
+        header.appendChild(span);
+    }
+
+
+
+
+  //  start1.style.color = randomColor();
+
+
+
+   /*  let val0 = Math.floor((Math.random() * 5) + 1);
+
+    let val = document.createTextNode(val0);
+
+    span.appendChild(val);
+    span.style.color = color;
+    header.appendChild(span);
+
+
+
+    start1.style.color = "#fff";
+    start1.style.opacity = 0.4;
+    start1.value = Math.floor((Math.random() * 5) + 1); */
 }
 
 generate_gane();

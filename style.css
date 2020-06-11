@@ -8,6 +8,20 @@ body, html {
     color: #424242;
 }
 
+
+header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 22px;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 16px;
+    background-color: mintcream;
+}
+
 #title {
     text-align: center;
     margin-bottom: 120px;
@@ -69,7 +83,6 @@ body, html {
 
 #game table {
     width: 100%;
-    color: #424242;
     box-shadow: 0 20px 10px rgba(0,0,0,0.19), 0 6px 10px rgba(0,0,0,0.23);
 }
 
@@ -86,7 +99,7 @@ body, html {
     height: 100%;
     border:none;
     font-size: 26px;
-    color: rgb(189, 129, 129);
+    color: #fff;
     text-align: center;
 }
 
