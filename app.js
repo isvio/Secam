@@ -1,13 +1,13 @@
 
 
-let homePage = document.getElementById("begin");
-let gamePage = document.getElementById("game");
-let helpPage = document.getElementById("help");
+let homePage = document.getElementById("begin"),
+    gamePage = document.getElementById("game"),
+    helpPage = document.getElementById("help");
 
-let playButtonClick = document.getElementById("playButton");
-let helpButtonClick = document.getElementById("helpButton");
-let helpBackButtonClick = document.getElementById("helpBack");
-let verifySolutionButtonClick = document.getElementById("verify");
+let playButtonClick = document.getElementById("playButton"),
+    helpButtonClick = document.getElementById("helpButton"),
+    helpBackButtonClick = document.getElementById("helpBack"),
+    verifySolutionButtonClick = document.getElementById("verify");
 
 playButtonClick.addEventListener("click", function () {
     homePage.style.display = "none";
@@ -27,7 +27,7 @@ helpBackButtonClick.addEventListener("click", function () {
 homePage.style.display = "none";
 gamePage.style.display = "block";
 
-verifySolutionButtonClick.addEventListener("click", function () {
+/* verifySolutionButtonClick.addEventListener("click", function () {
     let mat = [];
     let row = [];
 
@@ -50,13 +50,13 @@ verifySolutionButtonClick.addEventListener("click", function () {
 
     console.log(mat);
 
-});
+}); */
 
-let game = document.getElementById("game-table");
+/* let game = document.getElementById("game-table");
 
 game.addEventListener("input", function () {
     // console.log(game.id);
-});
+}); */
 
 let row0 = [],
     row1 = [],
@@ -76,8 +76,10 @@ let info_game = document.getElementById("info-game");
 
 function check_rowcol(rowcol_number, value, target) {
     if (rowcol_number[0] === value || rowcol_number[1] === value || rowcol_number[2] === value || rowcol_number[3] === value || rowcol_number[4] === value || rowcol_number[5] === value) {
+        //document.getElementById(target).disabled = "false";
         document.getElementById(target).value = "";
         info_game.innerHTML = "check row or column";
+        rowcol_number.pop(value);
 
     } else {
         info_game.innerHTML = "";
@@ -87,6 +89,8 @@ function check_rowcol(rowcol_number, value, target) {
         }
     }
 }
+ 
+
 
 function randomColor() {
     var letters = '0123456789ABCDEF';
@@ -101,15 +105,15 @@ function randomColor() {
 
 function generate_gane() {
     let header = document.getElementsByTagName("header")[0];
-    
+
 
     let start_index_i_0 = Math.floor((Math.random() * 5) + 0);
     let start_index_j_0 = Math.floor((Math.random() * 5) + 0);
     console.log(start_index_i_0, start_index_j_0);
 
-     let start_index_i_1 =  Math.floor((Math.random() * 5) + 0);
-     let start_index_j_1 =  Math.floor((Math.random() * 5) + 0);
-     console.log(start_index_i_1, start_index_j_1);
+    let start_index_i_1 = Math.floor((Math.random() * 5) + 0);
+    let start_index_j_1 = Math.floor((Math.random() * 5) + 0);
+    console.log(start_index_i_1, start_index_j_1);
 
     let start0 = document.getElementById((start_index_i_0 + "" + start_index_j_0).toString());
     console.log(start0);
@@ -117,8 +121,8 @@ function generate_gane() {
     console.log(start1);
 
 
-   createSolution(start0, header);
-   createSolution(start1, header);
+    createSolution(start0, header);
+    createSolution(start1, header);
 }
 
 function createSolution(start, pos) {
@@ -187,6 +191,8 @@ function getID(e) {
             break;
     }
 }
+
+//help section
 
 let textPlace = document.getElementById("help-text");
 let playDemoButton = document.getElementById("demo");
