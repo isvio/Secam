@@ -74,21 +74,15 @@ let col0 = [],
 
 let info_game = document.getElementById("info-game");
 
-function check_rowcol(rowcol_number, value, target) {
-    if (rowcol_number[0] === value || rowcol_number[1] === value || rowcol_number[2] === value || rowcol_number[3] === value || rowcol_number[4] === value || rowcol_number[5] === value) {
-        //document.getElementById(target).disabled = "false";
-        document.getElementById(target).value = "";
-        info_game.innerHTML = "check row or column";
-        rowcol_number.pop(value);
-
-    } else {
-        info_game.innerHTML = "";
-        rowcol_number.push(value);
-        if (document.getElementById(target).value != "") {
-            document.getElementById(target).disabled = "true";
-        }
+function check_rowcol(rowcol) {
+    var index, sum = 0;
+    for(index = 0; index < 6; index++) {
+        sum += rowcol[index];
     }
+    return sum === 21;
 }
+
+
  
 
 
