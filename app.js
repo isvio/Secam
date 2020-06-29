@@ -27,37 +27,6 @@ helpBackButtonClick.addEventListener("click", function () {
 homePage.style.display = "none";
 gamePage.style.display = "block";
 
-/* verifySolutionButtonClick.addEventListener("click", function () {
-    let mat = [];
-    let row = [];
-
-    for (var i = 0; i < 6; i++) {
-        mat[i] = new Array(6);
-    }
-
-
-
-    console.log(row);
-
-    for (var i = 0; i < 6; i++) {
-        for (var j = 0; j < 6; j++) {
-            var x = Math.floor((Math.random() * 6) + 1);
-            if (!mat[i].includes) {
-                mat[i][j] = x;
-            }
-        }
-    }
-
-    console.log(mat);
-
-}); */
-
-/* let game = document.getElementById("game-table");
-
-game.addEventListener("input", function () {
-    // console.log(game.id);
-}); */
-
 let row0 = [],
     row1 = [],
     row2 = [],
@@ -72,19 +41,15 @@ let col0 = [],
     col4 = [],
     col5 = [];
 
+let sections = [13, 6, 4];
+
+let game0 = [
+    ['00', '01', '11'],
+    ['02', '12'],
+    ['03', '04']
+];
+
 let info_game = document.getElementById("info-game");
-
-function check_rowcol(rowcol) {
-    var index, sum = 0;
-    for(index = 0; index < 6; index++) {
-        sum += rowcol[index];
-    }
-    return sum === 21;
-}
-
-
- 
-
 
 function randomColor() {
     var letters = '0123456789ABCDEF';
@@ -95,98 +60,56 @@ function randomColor() {
     return color;
 }
 
-
-
-function generate_gane() {
-    let header = document.getElementsByTagName("header")[0];
-
-
-    let start_index_i_0 = Math.floor((Math.random() * 5) + 0);
-    let start_index_j_0 = Math.floor((Math.random() * 5) + 0);
-    console.log(start_index_i_0, start_index_j_0);
-
-    let start_index_i_1 = Math.floor((Math.random() * 5) + 0);
-    let start_index_j_1 = Math.floor((Math.random() * 5) + 0);
-    console.log(start_index_i_1, start_index_j_1);
-
-    let start0 = document.getElementById((start_index_i_0 + "" + start_index_j_0).toString());
-    console.log(start0);
-    let start1 = document.getElementById((start_index_i_1 + "" + start_index_j_1).toString());
-    console.log(start1);
-
-
-    createSolution(start0, header);
-    createSolution(start1, header);
+function checkSection(section, numbers) {
+    var sum = 0, s = 0;
+    for(var index = 0; index < numbers.length; index++) {
+        s +=document.getElementById(numbers[index]).value;
+    }
+    for(var count = 0; count < s.length; count++) {
+        sum += parseInt(s[count]);
+    }
+    return sum === section;
 }
 
-function createSolution(start, pos) {
-    let color = randomColor();
-    let span = document.createElement("span");
-    if (!(color === "#FFFF")) {
-        start.style.backgroundColor = color;
-        let value = Math.floor((Math.random() * 5) + 1);
-        let val = document.createTextNode(value);
-        span.appendChild(val);
-        span.style.color = color;
-        pos.appendChild(span);
+
+
+function generate_gane(table) {
+    for(var section = 0; section < table.length; section++) {
+        calculateSum(table[section]);
     }
 }
 
-generate_gane();
+
+function calculateSum(value) {
+    let header = document.getElementsByTagName("header")[0];
+    let color = randomColor();
+    let span = document.createElement("span");
+    if (!(color === "#FFFF")) {
+        let val = document.createTextNode(value);
+        console.log(color);
+        console.log(val);
+        span.appendChild(val);
+        span.style.color = color;
+        header.appendChild(span);
+    }
+}
+
+
 
 function getID(e) {
     console.log(e.target.id);
     var x = e.target.id.toString();
     let input = document.getElementById(e.target.id).value;
-
-    switch (x[0]) {
-        case '0':
-            check_rowcol(row0, input, e.target.id);
-            break;
-        case '1':
-            check_rowcol(row1, input, e.target.id);
-            break;
-        case '2':
-            check_rowcol(row2, input, e.target.id);
-            break;
-        case '3':
-            check_rowcol(row3, input, e.target.id);
-            break;
-        case '4':
-            check_rowcol(row4, input, e.target.id);
-            break;
-        case '5':
-            check_rowcol(row5, input, e.target.id);
-            break;
-        default:
-            break;
-    }
-
-    switch (x[1]) {
-        case '0':
-            check_rowcol(col0, input, e.target.id);
-            break;
-        case '1':
-            check_rowcol(col1, input, e.target.id);
-            break;
-        case '2':
-            check_rowcol(col2, input, e.target.id);
-            break;
-        case '3':
-            check_rowcol(col3, input, e.target.id);
-            break;
-        case '4':
-            check_rowcol(col4, input, e.target.id);
-            break;
-        case '5':
-            check_rowcol(col5, input, e.target.id);
-            break;
-        default:
-            break;
-    }
 }
 
-//help section
+generate_gane(sections);
+
+verifySolutionButtonClick.addEventListener("click", function() {
+    console.log("check game");
+    if(checkSection(sections[0], game0[0])) console.log("succes");
+});
+
+
 
 let textPlace = document.getElementById("help-text");
 let playDemoButton = document.getElementById("demo");
