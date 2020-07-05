@@ -29,8 +29,10 @@ span {
     text-align: center;
     margin-bottom: 120px;
     color: #725e72;
-    font-size: 36px;
+    font-size: 40px;
 }
+
+
 
 .button {
     display: block;
@@ -114,7 +116,7 @@ span {
 
 
  td {
-    width: 15%;
+    width: 18%;
     position: relative;
     border: 0.3px dashed rgb(204, 204, 209);
 }
@@ -135,19 +137,19 @@ td .content {
 }
 
 #sum1 {
-    color: #4481ba;
+    color: #003049;
 }
 
 #sum2 {
-    color: #92b789;
+    color: #d62828;
 }
 
 #sum3 {
-    color: #602b24;
+    color: #b5838d;
 }
 
 #sum4 {
-    color: #b7758f;
+    color: #9d8189;
 }
 
 #help h2 {
@@ -157,10 +159,11 @@ td .content {
 
 
 #demo-game-table tr td {
-    border: 1px solid rebeccapurple;
-    color: #424242;
+    border: 1px solid rgb(142, 126, 158);
+    color: #fff;
     font-weight: bold;;
     text-align: center;
+    width: 55px;
 }
 
 #demo-game-table .content {
@@ -182,7 +185,7 @@ td .content {
 }
 
 .t11, .t12 {
-    background-color: #FFDEAD;
+    background-color: #003049;
 }
 
 .t21, .t31, .t32 {
@@ -190,7 +193,7 @@ td .content {
 }
 
 .t22 {
-    background-color: #20B2AA;
+    background-color: #d62828;
 }
 
 .t13, .t23, .t33 {
@@ -209,4 +212,13 @@ td .content {
     padding: 10px;
     font-size: 22px;
     display: none;
+}
+
+@media only screen and (min-width: 400px) {
+    .button {
+        width: 220px;
+        height: 60px;
+        margin-top: 22px;
+        font-size: 16px;
+    }
 }
