@@ -23,8 +23,8 @@ helpBackButtonClick.addEventListener("click", function () {
     homePage.style.display = "block";
 });
 
-//homePage.style.display = "none";
-//gamePage.style.display = "block";
+homePage.style.display = "none";
+gamePage.style.display = "block";
 
 let row0 = [],
     row1 = [],
@@ -40,6 +40,59 @@ let col0 = [],
     col4 = [],
     col5 = [];
 
+function getID(e) {
+    console.log(e.target.id);
+    var x = e.target.id.toString();
+    let input = document.getElementById(e.target.id).value;
+    console.log(input);
+    switch (x[0]) {
+        case '0':
+            row0.push(input);
+            break;
+        case '1':
+            row1.push(input);
+            break;
+        case '2':
+            row2.push(input);
+            break;
+        case '3':
+            row3.push(input);
+            break;
+        case '4':
+            row4.push(input);
+            break;
+        case '5':
+            row5.push(input);
+            break;
+    }
+    switch (x[1]) {
+        case '0':
+            col0.push(input);
+            break;
+        case '1':
+            col1.push(input);
+            break;
+        case '2':
+            col2.push(input);
+            break;
+        case '3':
+            col3.push(input);
+            break;
+        case '4':
+            col4.push(input);
+            break;
+        case '5':
+            col5.push(input);
+            break;
+    }
+    console.log(row0);
+    console.log(col0);
+}
+
+function hasDuplicates(array) {
+    return (new Set(array)).size !== array.length;
+}
+
 let sections0 = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
 
 let game0 = [['00', '01', '11'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '30', '31'], ['22', '32', '33'],
@@ -48,7 +101,22 @@ let game0 = [['00', '01', '11'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'
 let colors0 = ['#264653', '#2a9d8f', '#e9c46a', '#f4a261', '#e76f51', '#313e43',
     '#46726f', '#bbaa84', '#c19d84', '#b47d74', '#6E6E6E', '#39888A', '#878787', '#00C389', '#3B948B', '#1B8BBF'];
 
-let info_game = document.getElementById("info-game");
+function addHint() {
+    let c31 = document.getElementById("31");
+    let c44 = document.getElementById("44");
+    let c45 = document.getElementById("45");
+    c31.value = 4;
+    c44.value = 2;
+    c45.value = 1;
+    c31.disabled = "true";
+    c44.disabled = "true";
+    c45.disabled = "true";
+    console.log("hint");
+}
+
+addHint();
+
+//let info_game = document.getElementById("info-game");
 
 function paintCell(game, color) {
     for (cell = 0; cell < game.length; cell++) {
@@ -72,12 +140,6 @@ function generate_game(table) {
     }
 }
 
-function getID(e) {
-    console.log(e.target.id);
-    var x = e.target.id.toString();
-    let input = document.getElementById(e.target.id).value;
-}
-
 generate_game(sections0);
 
 function checkSection(section, numbers) {
@@ -92,12 +154,17 @@ function checkSection(section, numbers) {
 }
 
 verifySolutionButtonClick.addEventListener("click", function () {
-
-    if (checkSection(sections[0], game0[0]) && checkSection(sections[1], game0[1])
-    ) console.log("succes two sums");
+    var val = 0;
+    for (var count = 0; count < 16; count++) {
+        if (checkSection(sections0[count], game0[count])) val++;
+    }
+    if (!hasDuplicates(row0) && !hasDuplicates(row1) && !hasDuplicates(row2)
+        && !hasDuplicates(row3) && !hasDuplicates(row4) && !hasDuplicates(row5)
+        && !hasDuplicates(col0) && !hasDuplicates(col1) && !hasDuplicates(col2)
+        && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)
+        && val === 16) console.log("succes");
+    else console.log("fail");
 });
-
-
 
 let textPlace = document.getElementById("help-text");
 let playDemoButton = document.getElementById("demo");
@@ -165,5 +232,4 @@ playDemoButton.addEventListener("click", function playDemo() {
             });
         });
     });
-
 });
