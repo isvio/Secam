@@ -57,6 +57,15 @@ span {
     display: none;
 }
 
+#result-game {
+    padding: 15px;
+    font-size: 35px;
+    position: relative;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
 #gamePlace {
     margin: auto;
 }
@@ -90,7 +99,6 @@ span {
     color: indianred;
     font-weight: bold;
     text-align: center;
-
 }
 
 #game input {
@@ -109,12 +117,9 @@ span {
     margin: 0;
 }
 
-
  td {
     position: relative;
-    border: 0.3px dashed rgb(204, 204, 209);
 }
-
 
 td:after {
     content: '';
@@ -206,11 +211,9 @@ td .content {
     color: #e76f51;
 }
 
-
 #demo3 {
     color: #ADD8E6;
 }
-
 
 #demo4 {
     color: #D3D3D3;

@@ -154,7 +154,8 @@ function checkSection(section, numbers) {
 }
 
 verifySolutionButtonClick.addEventListener("click", function () {
-    var val = 0;
+    var val = 0,
+        message = document.getElementById("result-game");
     for (var count = 0; count < 16; count++) {
         if (checkSection(sections0[count], game0[count])) val++;
     }
@@ -162,8 +163,13 @@ verifySolutionButtonClick.addEventListener("click", function () {
         && !hasDuplicates(row3) && !hasDuplicates(row4) && !hasDuplicates(row5)
         && !hasDuplicates(col0) && !hasDuplicates(col1) && !hasDuplicates(col2)
         && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)
-        && val === 16) console.log("succes");
-    else console.log("fail");
+        && val === 16) {
+        message.style.color = "#4fb477";
+        message.innerHTML = "Congratulations, you solved everything";
+    } else {
+        message.innerHTML = "Good try, but you failed!";
+        message.style.color = "#e63946";
+    }
 });
 
 let textPlace = document.getElementById("help-text");
