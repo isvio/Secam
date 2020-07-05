@@ -2,9 +2,8 @@
 
 let homePage = document.getElementById("begin"),
     gamePage = document.getElementById("game"),
-    helpPage = document.getElementById("help");
-
-let playButtonClick = document.getElementById("playButton"),
+    helpPage = document.getElementById("help"),
+    playButtonClick = document.getElementById("playButton"),
     helpButtonClick = document.getElementById("helpButton"),
     helpBackButtonClick = document.getElementById("helpBack"),
     verifySolutionButtonClick = document.getElementById("verify");
@@ -24,8 +23,8 @@ helpBackButtonClick.addEventListener("click", function () {
     homePage.style.display = "block";
 });
 
-homePage.style.display = "none";
-gamePage.style.display = "block";
+//homePage.style.display = "none";
+//gamePage.style.display = "block";
 
 let row0 = [],
     row1 = [],
@@ -41,60 +40,37 @@ let col0 = [],
     col4 = [],
     col5 = [];
 
-let sections = [13, 6, 4];
+let sections0 = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
 
-let game0 = [
-    ['00', '01', '11'],
-    ['02', '12'],
-    ['03', '04']
-];
+let game0 = [['00', '01', '11'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '30', '31'], ['22', '32', '33'],
+['13', '23'], ['14', '15'], ['24', '25'], ['34', '35', '45'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
+
+let colors0 = ['#264653', '#2a9d8f', '#e9c46a', '#f4a261', '#e76f51', '#313e43',
+    '#46726f', '#bbaa84', '#c19d84', '#b47d74', '#6E6E6E', '#39888A', '#878787', '#00C389', '#3B948B', '#1B8BBF'];
 
 let info_game = document.getElementById("info-game");
 
-function randomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
-function checkSection(section, numbers) {
-    var sum = 0, s = 0;
-    for(var index = 0; index < numbers.length; index++) {
-        s +=document.getElementById(numbers[index]).value;
-    }
-    for(var count = 0; count < s.length; count++) {
-        sum += parseInt(s[count]);
-    }
-    return sum === section;
-}
-
-
-
-function generate_gane(table) {
-    for(var section = 0; section < table.length; section++) {
-        calculateSum(table[section]);
+function paintCell(game, color) {
+    for (cell = 0; cell < game.length; cell++) {
+        document.getElementById(game[cell]).style.backgroundColor = color;
     }
 }
 
-
-function calculateSum(value) {
+function calculateSum(section, color) {
     let header = document.getElementsByTagName("header")[0];
-    let color = randomColor();
     let span = document.createElement("span");
-    if (!(color === "#FFFF")) {
-        let val = document.createTextNode(value);
-        console.log(color);
-        console.log(val);
-        span.appendChild(val);
-        span.style.color = color;
-        header.appendChild(span);
-    }
+    let val = document.createTextNode(section);
+    span.appendChild(val);
+    span.style.color = color;
+    header.appendChild(span);
 }
 
-
+function generate_game(table) {
+    for (var section = 0; section < table.length; section++) {
+        calculateSum(table[section], colors0[section]);
+        paintCell(game0[section], colors0[section]);
+    }
+}
 
 function getID(e) {
     console.log(e.target.id);
@@ -102,11 +78,23 @@ function getID(e) {
     let input = document.getElementById(e.target.id).value;
 }
 
-generate_gane(sections);
+generate_game(sections0);
 
-verifySolutionButtonClick.addEventListener("click", function() {
-    console.log("check game");
-    if(checkSection(sections[0], game0[0])) console.log("succes");
+function checkSection(section, numbers) {
+    var sum = 0, s = 0;
+    for (var index = 0; index < numbers.length; index++) {
+        s += document.getElementById(numbers[index]).value;
+    }
+    for (var count = 0; count < s.length; count++) {
+        sum += parseInt(s[count]);
+    }
+    return sum === section;
+}
+
+verifySolutionButtonClick.addEventListener("click", function () {
+
+    if (checkSection(sections[0], game0[0]) && checkSection(sections[1], game0[1])
+    ) console.log("succes two sums");
 });
 
 
