@@ -164,11 +164,19 @@ verifySolutionButtonClick.addEventListener("click", function () {
         && !hasDuplicates(col0) && !hasDuplicates(col1) && !hasDuplicates(col2)
         && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)
         && val === 16) {
-        message.style.color = "#4fb477";
+        message.style.color = "#1b998b";
+        message.style.fontSize = "18px";
+        message.style.fontWeight = "bold";
         message.innerHTML = "Congratulations, you solved everything";
+        let inputs = document.getElementsByTagName("input");
+        for(var count = 0; count < inputs.length; count++) {
+            inputs[count].disabled = "true";
+        }
     } else {
-        message.innerHTML = "Good try, but you failed!";
+        message.style.fontSize = "18px";
         message.style.color = "#e63946";
+        message.style.fontWeight = "bold";
+        message.innerHTML = "Good try, but you failed!";
     }
 });
 
