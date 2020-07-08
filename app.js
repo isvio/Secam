@@ -107,7 +107,6 @@ function addHint() {
     c31.disabled = "true";
     c44.disabled = "true";
     c45.disabled = "true";
-    console.log("hint");
 }
 
 addHint();
@@ -149,7 +148,8 @@ function checkSection(section, numbers) {
 
 verifySolutionButtonClick.addEventListener("click", function () {
     var val = 0,
-        message = document.getElementById("result-game");
+        message = document.getElementById("result-game"),
+        inputs = document.getElementsByTagName("input");
     for (var count = 0; count < 16; count++) {
         if (checkSection(sections0[count], game0[count])) val++;
     }
@@ -162,15 +162,37 @@ verifySolutionButtonClick.addEventListener("click", function () {
         message.style.fontSize = "18px";
         message.style.fontWeight = "bold";
         message.innerHTML = "Congratulations, you solved everything";
-        let inputs = document.getElementsByTagName("input");
+
         for (var count = 0; count < inputs.length; count++) {
             inputs[count].disabled = "true";
         }
     } else {
+        let tryAgainButtonClick = document.getElementById("repeat-game");
         message.style.fontSize = "18px";
         message.style.color = "#e63946";
         message.style.fontWeight = "bold";
         message.innerHTML = "Good try, but you failed!";
+        verifySolutionButtonClick.style.display = "none";
+        tryAgainButtonClick.style.display = "block";
+        tryAgainButtonClick.addEventListener("click", function () {
+            tryAgainButtonClick.style.display = "none";
+            verifySolutionButtonClick.style.display = "block";
+            for (var count = 0; count < inputs.length; count++) {
+                inputs[count].value = "";
+            }
+            addHint();
+            row0.length = 0;
+            row1.length = 0;
+            row2.length = 0;
+            row3.length = 0;
+            row4.length = 0;
+            row5.length = 0;
+            col0.length = 0;
+            col1.length = 0;
+            col2.length = 0;
+            col3.length = 0;
+            col4.length = 0;
+        });
     }
 });
 
