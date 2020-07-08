@@ -41,10 +41,8 @@ let col0 = [],
     col5 = [];
 
 function getID(e) {
-    console.log(e.target.id);
     var x = e.target.id.toString();
     let input = document.getElementById(e.target.id).value;
-    console.log(input);
     switch (x[0]) {
         case '0':
             row0.push(input);
@@ -85,8 +83,6 @@ function getID(e) {
             col5.push(input);
             break;
     }
-    console.log(row0);
-    console.log(col0);
 }
 
 function hasDuplicates(array) {
@@ -115,8 +111,6 @@ function addHint() {
 }
 
 addHint();
-
-//let info_game = document.getElementById("info-game");
 
 function paintCell(game, color) {
     for (cell = 0; cell < game.length; cell++) {
@@ -169,7 +163,7 @@ verifySolutionButtonClick.addEventListener("click", function () {
         message.style.fontWeight = "bold";
         message.innerHTML = "Congratulations, you solved everything";
         let inputs = document.getElementsByTagName("input");
-        for(var count = 0; count < inputs.length; count++) {
+        for (var count = 0; count < inputs.length; count++) {
             inputs[count].disabled = "true";
         }
     } else {
