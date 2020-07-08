@@ -23,9 +23,6 @@ helpBackButtonClick.addEventListener("click", function () {
     homePage.style.display = "block";
 });
 
-homePage.style.display = "none";
-gamePage.style.display = "block";
-
 let row0 = [],
     row1 = [],
     row2 = [],
@@ -112,7 +109,7 @@ function addHint() {
 addHint();
 
 function paintCell(game, color) {
-    for (cell = 0; cell < game.length; cell++) {
+    for (var cell = 0; cell < game.length; cell++) {
         document.getElementById(game[cell]).style.backgroundColor = color;
     }
 }
