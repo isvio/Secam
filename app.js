@@ -90,8 +90,8 @@ window.onload = function () {
     let game0 = [['00', '01', '11'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '30', '31'], ['22', '32', '33'],
     ['13', '23'], ['14', '15'], ['24', '25'], ['34', '35', '45'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
 
-    let colors0 = ['#264653', '#2a9d8f', '#e9c46a', '#f4a261', '#e76f51', '#313e43',
-        '#46726f', '#bbaa84', '#c19d84', '#b47d74', '#6E6E6E', '#39888A', '#878787', '#00C389', '#3B948B', '#1B8BBF'];
+    let colors0 = ['#ADD8E6', '#2a9d8f', '#e9c46a', '#6B8E23', '#e76f51', '#313e43',
+        '#46726f', '#800000', '#A0522D', '#b47d74', '#FF6347', '#A0522D', '#F4A460', '#00C389', '#CD5C5C', '#1B8BBF'];
 
     function addHint() {
         let c31 = document.getElementById("31");
@@ -158,7 +158,6 @@ window.onload = function () {
             message.style.fontSize = "18px";
             message.style.fontWeight = "bold";
             message.innerHTML = "Congratulations, you solved everything";
-
             for (var count = 0; count < inputs.length; count++) {
                 inputs[count].disabled = "true";
             }
