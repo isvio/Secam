@@ -59,11 +59,11 @@ body, html {
     width: 300px;
     height: 300px;
     margin: auto;
-    gap: 2px;
+    /* gap: 1px; */
 }
 
 .item {
-    background-color: rgb(202, 161, 161);
-    border:2px solid red;
+    background-color: rgb(231, 223, 223);
+    border:1px solid rgb(53, 45, 45);
     
 }
