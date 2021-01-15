@@ -22,6 +22,17 @@ window.onload = function () {
         homePage.style.display = "block";
     });
 
+    homePage.style.display = "none";
+    gamePage.style.display = "block";
+
+    let file = document.getElementById("file_btn");
+    let help = document.getElementById("help_btn");
+
+
+    file.addEventListener("click", function () {
+
+    })
+
     let row0 = [],
         row1 = [],
         row2 = [],
@@ -93,6 +104,57 @@ window.onload = function () {
     let colors0 = ['#ADD8E6', '#2a9d8f', '#e9c46a', '#6B8E23', '#e76f51', '#313e43',
         '#46726f', '#800000', '#A0522D', '#b47d74', '#FF6347', '#A0522D', '#F4A460', '#00C389', '#CD5C5C', '#1B8BBF'];
 
+
+    /*     let border = (cells) => {
+            for(let index = 0; index < cells.length; index++) {
+                if(cells[index][0] === cells[++index][0]) {
+                    //some row
+                    cells[index].style.borderRight = "thick solid #0000FF"; 
+                }
+            }
+        } */
+
+    let g = document.getElementsByClassName("game")[0];
+
+    let Div = (value1, value2) => {
+        let obj = document.createElement("div");
+        obj.setAttribute("class", value1);
+        value2 == null ? obj.setAttribute("class", value1) : obj.setAttribute("id", value2);
+        return obj;
+    }
+
+    class Cell {
+        constructor(id) {
+            this.id = id;
+        }
+        render() {
+            let cell = Div("item", this.id);
+            g.appendChild(cell);
+
+        }
+    }
+
+    for (let i = 0; i < 36; i++) {
+        let obj = new Cell(i);
+        obj.render();
+    }
+
+
+    let border = (c1, c2) => {
+
+        if (c1[0] === c2[0]) {
+            //some row
+            console.log("some row");
+            document.getElementById(c1).style.borderRight = "none";
+        }
+
+    }
+
+    border("00", "01");
+
+
+
+
     function addHint() {
         let c31 = document.getElementById("31");
         let c44 = document.getElementById("44");
@@ -126,8 +188,11 @@ window.onload = function () {
         for (var section = 0; section < table.length; section++) {
             calculateSum(table[section], colors0[section]);
             paintCell(game0[section], colors0[section]);
+
         }
     }
+
+    //  border(game0[0][0]);
 
     generate_game(sections0);
 

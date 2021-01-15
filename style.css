@@ -1,14 +1,16 @@
 
 body, html {
     margin: 0;
+    padding: 0;
     font-family: sans-serif;
     overflow-x: hidden;
     overflow-y: auto;
-    background: linear-gradient(90deg, rgb(142, 177, 177), #FFCCC4);
+    /* background: linear-gradient(90deg, rgb(142, 177, 177), #FFCCC4); */
+    background-color: rgb(240, 239, 239);
     color: #424242;
 }
 
-header {
+/* header {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -19,7 +21,7 @@ header {
     font-size: 22px;
     background-color: #fff;
     text-align: center;
-}
+} */
 
 span {
     margin: 2px;
@@ -73,6 +75,8 @@ span {
 .container {
     width: 80%;
     margin: auto;
+    position: relative;
+    top: 60px;
 }
 
 #helpBack {
@@ -104,15 +108,17 @@ span {
 #game input {
     width: 100%;
     height: 100%;
-    border:0.5px dashed #fff;
+    /* border:0.5px dashed #fff; */
     font-size: 26px;
     font-weight: bold;
     color: #fff;
     text-align: center; 
 }
 
- td {
+ td, tr {
     position: relative;
+    
+
 }
 
 td:after {
@@ -159,7 +165,7 @@ td .content {
 }
 
 #demo-game-table tr td {
-    border: 1px solid rgb(142, 126, 158);
+    /* border: 1px solid rgb(142, 126, 158); */
     color: #fff;
     font-weight: bold;;
     text-align: center;
@@ -182,7 +188,6 @@ td .content {
     background-color: indianred;
     font-weight: bold  ;
     margin-top: 50px;
-    color: #f3e1e1;
 }
 
 .t11, .t12 {
@@ -275,4 +280,64 @@ td .content {
         width: 35%;
         margin: auto;
     }
+}
+
+#menu {
+    background-color: #ddbfbf;
+    width: 100%;
+    height: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-links {
+    position: fixed;
+    top: -12px;
+    left: -22px;
+    list-style-type: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+.nav-links li {
+    display: inline;
+    padding: 5px;
+}
+
+.file-menu {
+    position:  fixed;
+    background-color: #ddbfbf;
+    color: #fff;
+    top: 25px;
+    left: 2px;
+    width: 80px;
+    height: 100px;
+    padding: 5px;
+    font-size: 15px;
+    display: none;
+}
+
+.container {
+    display: none;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(6, 50px);
+    grid-template-rows: repeat(6, 50px);
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 50px;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    gap: 2px;
+}
+
+.item {
+    background-color: rgb(202, 161, 161);
+    border:2px solid red;
+    
 }
