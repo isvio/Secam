@@ -134,9 +134,12 @@ window.onload = function () {
         }
     }
 
-    for (let i = 0; i < 36; i++) {
-        let obj = new Cell(i);
-        obj.render();
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 6; j++) {
+            let obj = new Cell(i + "" + j);
+            obj.render();
+        }
+
     }
 
 
