@@ -145,32 +145,50 @@ window.onload = function () {
 
     let border = (c1, c2, c3) => {
 
-       
-            if (c1[0] === c2[0] && c1[1] < c2[1]) {
-                //some row
-                console.log("some row");
-                document.getElementById(c1).style.borderRight = "none";
-                document.getElementById(c2).style.borderLeft = "none";
-            }
-            if (c1[1] === c2[1] && c1[0] < c2[0]) {
-                //some col
-                console.log("some col");
-                document.getElementById(c1).style.borderBottom = "none";
-                document.getElementById(c2).style.borderTop = "none";
+        //test1: same row
+        // test 2: same col
+        /*
+        other:
 
-            
-            
-        } 
+        c1 c2 
+           c3
 
-    
+        c1 c2
+           c3
 
-        
+           c1
+        c3 c2        
+
+        c1
+        c2 c3
+
+        */
+
+        if (c1[0] === c2[0] && c1[1] < c2[1]) {
+            //some row
+            console.log("some row");
+            document.getElementById(c1).style.borderRight = "none";
+            document.getElementById(c2).style.borderLeft = "none";
+        }
+        if (c1[1] === c2[1] && c1[0] < c2[0]) {
+            //some col
+            console.log("some col");
+            document.getElementById(c1).style.borderBottom = "none";
+            document.getElementById(c2).style.borderTop = "none";
+
+
+
+        }
+
+
+
+
 
     }
 
     border("00", "01", "11");
     //border("01", "11");
-  //  border("45");
+    //  border("45");
 
 
 
@@ -214,7 +232,7 @@ window.onload = function () {
 
     //  border(game0[0][0]);
 
- //   generate_game(sections0);
+    //   generate_game(sections0);
 
     function checkSection(section, numbers) {
         var sum = 0, s = 0;
