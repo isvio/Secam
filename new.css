@@ -4,66 +4,62 @@ body, html {
     font-family: sans-serif;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: rgb(240, 239, 239);
+    background-color: #eeeeee;
     color: #424242;
 }
 
-#menu {
-    background-color: #ddbfbf;
-    width: 100%;
-    height: 1.5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
+h1 {
+    text-align: center;
+    color: #725e72;
+    font-size: 38px;
 }
 
-.nav-links {
-    position: fixed;
-    top: -12px;
-    left: -22px;
-    list-style-type: none;
+/* .button {
+    display: block;
+    width: 180px;
+    height: 50px;
+    margin: auto;
+    position: relative;
+    top: 40px; 
+    border: none;
+    cursor: pointer;
     color: #fff;
-    font-weight: 500;
+    border-radius: 10px;
+    font-weight: bold;
+} */
+
+/* #result-game {
+    padding: 15px;
+    font-size: 35px;
+    position: relative;
+    width: 50%;
+    margin: auto;
+    text-align: center;
 }
 
-.nav-links li {
-    display: inline;
-    padding: 5px;
-}
-
-.file-menu {
-    position:  fixed;
-    background-color: #ddbfbf;
-    color: #fff;
-    top: 25px;
-    left: 2px;
-    width: 80px;
-    height: 100px;
-    padding: 5px;
-    font-size: 15px;
-    display: none;
-}
-
-.container, button {
-    display: none;
-}
+.btn-game {
+    background-color: rgb(96, 149, 230);
+    font-weight: bold ;
+     margin-top: 50px;
+    font-size: 18px;
+} */
 
 .game {
     display: grid;
     grid-template-columns: repeat(6, 50px);
     grid-template-rows: repeat(6, 50px);
-    width: 100px;
-    height: 100px;
-    position: relative;
-    top: 50px;
     width: 300px;
-    height: 300px;
-    margin: auto;
-    /* gap: 1px; */
+    height: 350px;
+    margin: 50px auto;
 }
 
 .item {
     background-color: rgb(231, 223, 223);
-    border:1px solid rgb(53, 45, 45);
-    
+    border: 1px dashed rgb(115, 118, 119); 
+}
+
+sub {
+    position: relative;
+    top: -5px;
+    opacity: .8;
 }
