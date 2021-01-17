@@ -2,7 +2,6 @@ window.onload = function () {
 
     //    let verifySolutionButtonClick = document.getElementById("verify");
 
-
     let row0 = [],
         row1 = [],
         row2 = [],
@@ -94,9 +93,13 @@ window.onload = function () {
         obj.setAttribute(attr, value);
         return obj;
     }
-    let objects = 0;
-    let fill = false;
 
+    let button = Render("button", "class", "finish-game");
+    button.innerHTML = "Finish";
+    document.getElementById("container").appendChild(button);
+
+    
+    let objects = 0;
     let digits_isOpen = false;
     let getDigit = (id) => {
         if (!digits_isOpen) {
@@ -111,7 +114,7 @@ window.onload = function () {
                 wind.appendChild(btn);
                 btn.addEventListener("click", function () {
                     let cell = document.getElementById(id);
-                    if(!cell.classList.contains("full")) {
+                    if (!cell.classList.contains("full")) {
                         let p = Render("span", "class", "content");
                         p.innerHTML = btn.value;
                         objects++;
@@ -120,13 +123,11 @@ window.onload = function () {
                     } else {
                         cell.children[1].innerHTML = btn.value;
                     }
-                 //   console.log(cell.children[1]);
-
                     g.style.opacity = "1";
                     wind.remove();
                     digits_isOpen = false;
                     if (objects === 36) {
-                        console.log("all completed");
+                       
                     }
                 })
             }
@@ -147,10 +148,10 @@ window.onload = function () {
                     cell.appendChild(sub);
 
                     cell.addEventListener("click", function () {
-                       
-                            getDigit(i + "" + j);
-                            
-                        
+
+                        getDigit(i + "" + j);
+
+
                     })
                     g.appendChild(cell);
                 }
@@ -160,6 +161,8 @@ window.onload = function () {
 
     let game = new Game();
     game.render();
+
+
 
     let com = "1px dashed rgb(115, 118, 119)";
 

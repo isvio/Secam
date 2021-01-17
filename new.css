@@ -70,23 +70,22 @@ header p:first-child {
     font-size: 18px;
 } */
 
+#container {
+    width: 300px;
+    height: 400px;
+    margin: 50px auto;
+}
+
 #game {
     display: grid;
     grid-template-columns: repeat(6, 50px);
     grid-template-rows: repeat(6, 50px);
-    width: 300px;
-    height: 300px;
-    margin: 80px auto;
     box-shadow: 8px 8px 8px 0 rgba(0, 2, 0, 0.4), 0 8px 20px 0 rgba(0, 0, 0, 0.29);
 }
 
 .sum {
     color: #424242;
-    /* background-color:blue; */
     opacity: .6;
-    /* position: relative;
-    left: -5px;
-    top: -16px; */
     margin-top:  -6px;
     margin-left: -6px;
     width: 18px;
@@ -139,4 +138,20 @@ sub {
     font-weight: 800;
     border-radius: 15px;
     Outline: none;
+}
+
+.finish-game {
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    margin: 10px auto;
+    border: none;
+    background-color: rgb(92, 142, 235);
+    color: #fff;
+    position: relative;
+    font-weight: 500;
+    font-size: 15px;
+    top: 5px;
+    left: 75px;
+    border-radius: 12px;
 }
