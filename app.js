@@ -1,7 +1,5 @@
 window.onload = function () {
 
-    //    let verifySolutionButtonClick = document.getElementById("verify");
-
     let row0 = [],
         row1 = [],
         row2 = [],
@@ -15,6 +13,9 @@ window.onload = function () {
         col3 = [],
         col4 = [],
         col5 = [];
+
+
+
 
     // function getID(e) {
     //     var x = e.target.id.toString();
@@ -94,11 +95,17 @@ window.onload = function () {
         return obj;
     }
 
-    let button = Render("button", "class", "finish-game");
-    button.innerHTML = "Finish";
-    document.getElementById("container").appendChild(button);
+    document.getElementById("help").addEventListener("click", function() {
+      let winh = document.getElementById("help-window");
+      if(winh.style.display === "none") {
+        winh.style.display = "block"; 
+      } else {
+        winh.style.display = "none"; 
+      }
+      
+    })
 
-    
+
     let objects = 0;
     let digits_isOpen = false;
     let getDigit = (id) => {
@@ -127,7 +134,9 @@ window.onload = function () {
                     wind.remove();
                     digits_isOpen = false;
                     if (objects === 36) {
-                       
+                        let button = Render("button", "class", "finish-game");
+                        button.innerHTML = "Finish";
+                        document.getElementById("container").appendChild(button);
                     }
                 })
             }
@@ -146,12 +155,8 @@ window.onload = function () {
                     sub.style.opacity = "0";
                     sub.innerHTML = "...";
                     cell.appendChild(sub);
-
                     cell.addEventListener("click", function () {
-
                         getDigit(i + "" + j);
-
-
                     })
                     g.appendChild(cell);
                 }
@@ -161,8 +166,6 @@ window.onload = function () {
 
     let game = new Game();
     game.render();
-
-
 
     let com = "1px dashed rgb(115, 118, 119)";
 
@@ -231,13 +234,9 @@ window.onload = function () {
         c45.disabled = "true";
     }
 
-    //  addHint();
+    addHint();
 
-    //   function paintCell(game, color) {
-    //      for (var cell = 0; cell < game.length; cell++) {
-    //          document.getElementById(game[cell]).style.backgroundColor = color;
-    //      }
-    //  } 
+
 
     function calculateSum(section, color) {
         let header = document.getElementsByTagName("header")[0];
@@ -248,13 +247,13 @@ window.onload = function () {
         header.appendChild(span);
     }
 
-    function generate_game(table) {
-        for (var section = 0; section < table.length; section++) {
-            calculateSum(table[section], colors0[section]);
-            paintCell(game0[section], colors0[section]);
+    // function generate_game(table) {
+    //     for (var section = 0; section < table.length; section++) {
+    //         calculateSum(table[section], colors0[section]);
+    //         paintCell(game0[section], colors0[section]);
 
-        }
-    }
+    //     }
+    // }
 
     //  border(game0[0][0]);
 
@@ -321,73 +320,8 @@ window.onload = function () {
     //     }
     // });
 
-    //  let textPlace = document.getElementById("help-text");
-    //  let playDemoButton = document.getElementById("demo");
 
-    // playDemoButton.addEventListener("click", function playDemo() {
-    //     helpBackButtonClick.style.display = "none";
-    //     textPlace.style.display = "none";
-    //     document.getElementById("demo-game").style.display = "block";
-    //     playDemoButton.style.display = "none";
-    //     let move1Button = document.getElementById("move1");
-    //     move1Button.style.display = "block";
-    //     move1Button.addEventListener("click", function () {
-    //         document.getElementById("c5").innerHTML = 1;
-    //         move1Button.style.display = "none";
-    //         let move2Button = document.getElementById("move2");
-    //         move2Button.style.display = "block";
-    //         move2Button.addEventListener("click", function () {
-    //             document.getElementById("c2").innerHTML = 2;
-    //             move2Button.style.display = "none";
-    //             let move3Button = document.getElementById("move3");
-    //             move3Button.style.display = "block";
-    //             move3Button.addEventListener("click", function () {
-    //                 document.getElementById("c1").innerHTML = 1;
-    //                 move3Button.style.display = "none";
-    //                 let move4Button = document.getElementById("move4");
-    //                 move4Button.style.display = "block";
-    //                 move4Button.addEventListener("click", function () {
-    //                     document.getElementById("c3").innerHTML = 3;
-    //                     move4Button.style.display = "none";
-    //                     let move5Button = document.getElementById("move5");
-    //                     move5Button.style.display = "block";
-    //                     move5Button.addEventListener("click", function () {
-    //                         document.getElementById("c6").innerHTML = 2;
-    //                         move5Button.style.display = "none";
-    //                         let move6Button = document.getElementById("move6");
-    //                         move6Button.style.display = "block";
-    //                         move6Button.addEventListener("click", function () {
-    //                             document.getElementById("c4").innerHTML = 3;
-    //                             move6Button.style.display = "none";
-    //                             let move7Button = document.getElementById("move7");
-    //                             move7Button.style.display = "block";
-    //                             move7Button.addEventListener("click", function () {
-    //                                 document.getElementById("c9").innerHTML = 1;
-    //                                 move7Button.style.display = "none";
-    //                                 let move8Button = document.getElementById("move8");
-    //                                 move8Button.style.display = "block";
-    //                                 move8Button.addEventListener("click", function () {
-    //                                     document.getElementById("c7").innerHTML = 2;
-    //                                     move8Button.style.display = "none";
-    //                                     let move9Button = document.getElementById("move9");
-    //                                     move9Button.style.display = "block";
-    //                                     move9Button.addEventListener("click", function () {
-    //                                         document.getElementById("c8").innerHTML = 3;
-    //                                         move9Button.style.display = "none";
-    //                                         document.getElementById("finalDemoMessage").style.display = "block";
-    //                                         helpBackButtonClick.style.display = "block";
-    //                                         helpBackButtonClick.addEventListener("click", function () {
-    //                                         });
-    //                                     });
-    //                                 });
-    //                             });
-    //                         });
-    //                     });
-    //                 });
-    //             });
-    //         });
-    //     });
-    // });
+
 }
 
 
