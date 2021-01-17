@@ -111,16 +111,16 @@ window.onload = function () {
                 wind.appendChild(btn);
                 btn.addEventListener("click", function () {
                     let cell = document.getElementById(id);
-                    let p = Render("span", "class", "content");
-                    p.innerHTML = btn.value;
-                    objects++;
-                    cell.appendChild(p);
-
-
-
-
-
-                    console.log(cell.children[1]);
+                    if(!cell.classList.contains("full")) {
+                        let p = Render("span", "class", "content");
+                        p.innerHTML = btn.value;
+                        objects++;
+                        cell.appendChild(p);
+                        cell.classList.add("full");
+                    } else {
+                        cell.children[1].innerHTML = btn.value;
+                    }
+                 //   console.log(cell.children[1]);
 
                     g.style.opacity = "1";
                     wind.remove();
@@ -147,10 +147,10 @@ window.onload = function () {
                     cell.appendChild(sub);
 
                     cell.addEventListener("click", function () {
-                        if(!cell.classList.contains("full")) {
+                       
                             getDigit(i + "" + j);
-                            cell.classList.add("full");
-                        }
+                            
+                        
                     })
                     g.appendChild(cell);
                 }
