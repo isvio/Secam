@@ -94,6 +94,8 @@ window.onload = function () {
         obj.setAttribute(attr, value);
         return obj;
     }
+    let objects = 0;
+    let fill = false;
 
     let digits_isOpen = false;
     let getDigit = (id) => {
@@ -110,12 +112,22 @@ window.onload = function () {
                 btn.addEventListener("click", function () {
                     let cell = document.getElementById(id);
                     let p = Render("span", "class", "content");
-
                     p.innerHTML = btn.value;
+                    objects++;
                     cell.appendChild(p);
+
+
+
+
+
+                    console.log(cell.children[1]);
+
                     g.style.opacity = "1";
                     wind.remove();
                     digits_isOpen = false;
+                    if (objects === 36) {
+                        console.log("all completed");
+                    }
                 })
             }
             document.getElementsByTagName("body")[0].appendChild(wind);
@@ -133,9 +145,12 @@ window.onload = function () {
                     sub.style.opacity = "0";
                     sub.innerHTML = "...";
                     cell.appendChild(sub);
-        
+
                     cell.addEventListener("click", function () {
-                        getDigit(i + "" + j);
+                        if(!cell.classList.contains("full")) {
+                            getDigit(i + "" + j);
+                            cell.classList.add("full");
+                        }
                     })
                     g.appendChild(cell);
                 }

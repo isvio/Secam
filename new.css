@@ -96,18 +96,11 @@ header p:first-child {
 
 .content {
     color: rgb(79, 134, 163);
-    /* background-color: red; */
     width: 20px;
     margin: auto;
     padding: 5px;
     font-weight: 600;
     font-size: 20px;
-     /* position: relative;
-    top: 2px;
-    left: -0px; */
-   /* margin: -10px auto; */
-  
-  
 }
 
 .item {
