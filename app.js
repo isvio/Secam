@@ -94,6 +94,7 @@ window.onload = function () {
             for (let i = 0; i < 6; i++) {
                 for (let j = 0; j < 6; j++) {
                     let cell = Div("item", i + "" + j);
+                    
                     g.appendChild(cell);
                 }
             }
@@ -103,60 +104,60 @@ window.onload = function () {
     let game = new Game();
     game.render();
 
+    let com = "1px dashed #424242";
+
     let border = (top, right, bottom, left) => {
-        document.getElementById(top).style.borderTop = "none";
-        document.getElementById(right).style.borderRight = "none";
-        document.getElementById(bottom).style.borderBottom = "none";
-        document.getElementById(left).style.borderLeft = "none";
+        document.getElementById(top).style.borderTop = com;
+        document.getElementById(right).style.borderRight = com;
+        document.getElementById(bottom).style.borderBottom = com;
+        document.getElementById(left).style.borderLeft = com;
     }
 
     let design = (section) => {
         if (section.length === 2) {
             if (section[0][0] === section[1][0]) {
-                document.getElementById(section[0]).style.borderRight = "none";
-                document.getElementById(section[1]).style.borderLeft = "none";
+                document.getElementById(section[0]).style.borderRight = com;
+                document.getElementById(section[1]).style.borderLeft = com;
             }
             if (section[0][1] === section[1][1]) {
-                document.getElementById(section[0]).style.borderBottom = "none";
-                document.getElementById(section[1]).style.borderTop = "none";
+                document.getElementById(section[0]).style.borderBottom = com;
+                document.getElementById(section[1]).style.borderTop = com;
             }
         }
         if (section.length === 3) {
             if (section[0][0] === section[1][0] && section[1][0] === section[2][0]) {
-                document.getElementById(section[0]).style.borderRight = "none";
-                document.getElementById(section[1]).style.borderRight = "none";
-                document.getElementById(section[1]).style.borderLeft = "none";
-                document.getElementById(section[2]).style.borderLeft = "none";
+                document.getElementById(section[0]).style.borderRight = com;
+                document.getElementById(section[1]).style.borderRight = com;
+                document.getElementById(section[1]).style.borderLeft = com;
+                document.getElementById(section[2]).style.borderLeft = com;
             }
             if (section[0][1] === section[1][1] && section[1][1] === section[2][1]) {
-                document.getElementById(section[0]).style.borderBottom = "none";
-                document.getElementById(section[1]).style.borderTop = "none";
-                document.getElementById(section[1]).style.borderBottom = "none";
-                document.getElementById(section[2]).style.borderTop = "none";
+                document.getElementById(section[0]).style.borderBottom = com;
+                document.getElementById(section[1]).style.borderTop = com;
+                document.getElementById(section[1]).style.borderBottom = com;
+                document.getElementById(section[2]).style.borderTop = com;
             }
             if (section[0][0] === section[1][0] && section[1][1] === section[2][1]) {
+
                 if (section[0][1] < section[1][1] && section[1][0] < section[2][0])
                     border(section[2], section[0], section[1], section[1]);
+
                 if (section[2][0] < section[1][0] && section[1][1] < section[0][1])
                     border(section[1], section[1], section[2], section[0]);
-                if (section[1][1] && section[1][0] > section[2][0])
-                    border(section[1], section[0], section[2], section[1]);
-                if (section[0][1] > section[1][1] && section[1][0] < section[2][0])
+
+                if (section[1][1] < section[0][1] && section[1][0] > section[2][0])
+                    border(section[2], section[1], section[1], section[0]);
+
+                if (section[0][1] < section[1][1] && section[1][0] > section[2][0])
                     border(section[2], section[1], section[1], section[0]);
             }
         }
     }
 
-    for(let i = 0 ; i < game0.length; i ++) {
+    for (let i = 0; i < game0.length; i++) {
         design(game0[i]);
+        hint(game0[i][0], sections0[i]);
     }
-
-    //  design(["00", "01", "11"]);
-    //  design(["34", "35", "45"]);
-    // design(["33", "32", "22"]);
-    //  design(["30", "31", "21"]);
-   // design(["42", "41", "51"]);
-    // hint(game0[0][0], sections0[0]);
 
     function addHint() {
         let c31 = document.getElementById("31");
