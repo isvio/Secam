@@ -75,16 +75,51 @@ window.onload = function () {
         '#46726f', '#800000', '#A0522D', '#b47d74', '#FF6347', '#A0522D', '#F4A460', '#00C389', '#CD5C5C', '#1B8BBF'];
 
     let hint = (id, s) => {
-        document.getElementById(id).innerHTML = "<sub>" + s + "</sub>";
+        let origin = document.getElementById(id).firstChild;
+        origin.innerHTML = s;
+        origin.style.opacity = "1";
     }
 
-    let g = document.getElementsByClassName("game")[0];
+    let g = document.getElementById("game");
 
     let Div = (value1, value2) => {
         let obj = document.createElement("div");
         obj.setAttribute("class", value1);
         value2 == null ? obj.setAttribute("class", value1) : obj.setAttribute("id", value2);
         return obj;
+    }
+
+    let Render = (type, attr, value) => {
+        let obj = document.createElement(type);
+        obj.setAttribute(attr, value);
+        return obj;
+    }
+
+    let digits_isOpen = false;
+    let getDigit = (id) => {
+        if (!digits_isOpen) {
+            g.style.opacity = ".5";
+            digits_isOpen = true;
+            let wind = Div("digits");
+            for (let i = 0; i < 6; i++) {
+                let btn = document.createElement("button");
+                btn.setAttribute("class", "digit");
+                btn.innerHTML = i + 1;
+                btn.value = i + 1;
+                wind.appendChild(btn);
+                btn.addEventListener("click", function () {
+                    let cell = document.getElementById(id);
+                    let p = Render("span", "class", "content");
+
+                    p.innerHTML = btn.value;
+                    cell.appendChild(p);
+                    g.style.opacity = "1";
+                    wind.remove();
+                    digits_isOpen = false;
+                })
+            }
+            document.getElementsByTagName("body")[0].appendChild(wind);
+        }
     }
 
     class Game {
@@ -94,7 +129,14 @@ window.onload = function () {
             for (let i = 0; i < 6; i++) {
                 for (let j = 0; j < 6; j++) {
                     let cell = Div("item", i + "" + j);
-                    
+                    let sub = Div("sum");
+                    sub.style.opacity = "0";
+                    sub.innerHTML = "...";
+                    cell.appendChild(sub);
+        
+                    cell.addEventListener("click", function () {
+                        getDigit(i + "" + j);
+                    })
                     g.appendChild(cell);
                 }
             }
@@ -104,7 +146,7 @@ window.onload = function () {
     let game = new Game();
     game.render();
 
-    let com = "1px dashed #424242";
+    let com = "1px dashed rgb(115, 118, 119)";
 
     let border = (top, right, bottom, left) => {
         document.getElementById(top).style.borderTop = com;

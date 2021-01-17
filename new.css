@@ -70,7 +70,7 @@ header p:first-child {
     font-size: 18px;
 } */
 
-.game {
+#game {
     display: grid;
     grid-template-columns: repeat(6, 50px);
     grid-template-rows: repeat(6, 50px);
@@ -80,9 +80,41 @@ header p:first-child {
     box-shadow: 8px 8px 8px 0 rgba(0, 2, 0, 0.4), 0 8px 20px 0 rgba(0, 0, 0, 0.29);
 }
 
+.sum {
+    color: #424242;
+    /* background-color:blue; */
+    opacity: .6;
+    /* position: relative;
+    left: -5px;
+    top: -16px; */
+    margin-top:  -6px;
+    margin-left: -6px;
+    width: 18px;
+    font-size: 12px;
+   
+}
+
+.content {
+    color: rgb(79, 134, 163);
+    /* background-color: red; */
+    width: 20px;
+    margin: auto;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 20px;
+     /* position: relative;
+    top: 2px;
+    left: -0px; */
+   /* margin: -10px auto; */
+  
+  
+}
+
 .item {
     background-color: rgb(231, 223, 223);
-    border: 2px solid rgb(115, 118, 119); 
+    border: 2px solid rgb(78, 79, 80); 
+    text-align: center;
+    padding: 5px;
 }
 
 sub {
