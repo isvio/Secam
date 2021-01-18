@@ -110,7 +110,6 @@ window.onload = function () {
     let digits_isOpen = false;
     let getDigit = (id) => {
         let cell = document.getElementById(id);
-        
         if (!digits_isOpen && !cell.classList.contains("hint")) {
             g.style.opacity = ".5";
             digits_isOpen = true;
@@ -122,7 +121,6 @@ window.onload = function () {
                 btn.value = i + 1;
                 wind.appendChild(btn);
                 btn.addEventListener("click", function () {
-                    
                     if (!cell.classList.contains("full")) {
                         let p = Render("span", "class", "content");
                         p.innerHTML = btn.value;
@@ -182,13 +180,17 @@ window.onload = function () {
 
     }
 
-    function addHint() {
-        createHint("31", 4);
-        createHint("44", 2);
-        createHint("45", 1);
+    let hints = ["31", "44", "45", 4, 2, 1];
+
+    function addHint(id1, id2, id3, val1, val2, val3) {
+
+      
+       createHint(id1, val1);
+       createHint(id2, val2);
+       createHint(id3, val3);
     }
 
-    addHint();
+    addHint("31", "44", "45", 4, 2, 1);
 
     let com = "1px dashed rgb(115, 118, 119)";
 
