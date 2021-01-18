@@ -109,7 +109,9 @@ window.onload = function () {
     let objects = 0;
     let digits_isOpen = false;
     let getDigit = (id) => {
-        if (!digits_isOpen) {
+        let cell = document.getElementById(id);
+        
+        if (!digits_isOpen && !cell.classList.contains("hint")) {
             g.style.opacity = ".5";
             digits_isOpen = true;
             let wind = Div("digits");
@@ -120,7 +122,7 @@ window.onload = function () {
                 btn.value = i + 1;
                 wind.appendChild(btn);
                 btn.addEventListener("click", function () {
-                    let cell = document.getElementById(id);
+                    
                     if (!cell.classList.contains("full")) {
                         let p = Render("span", "class", "content");
                         p.innerHTML = btn.value;
@@ -171,17 +173,19 @@ window.onload = function () {
     let game = new Game();
     game.render();
 
-    let createContent = (id, value) => {
+    let createHint = (id, value) => {
         let org = document.getElementById(id);
+        org.classList.add("hint");
         let p = Render("span", "class", "content");
         p.innerHTML = value;
         org.appendChild(p);
+
     }
 
     function addHint() {
-        createContent("31", 4);
-        createContent("44", 2);
-        createContent("45", 1);
+        createHint("31", 4);
+        createHint("44", 2);
+        createHint("45", 1);
     }
 
     addHint();

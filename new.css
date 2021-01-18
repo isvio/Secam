@@ -182,3 +182,7 @@ sub {
     font-size: 15px;
     text-align: center;
 }
+
+.hint {
+    background-color: rgb(201, 191, 191);
+}
