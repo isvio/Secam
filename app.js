@@ -33,7 +33,6 @@ window.onload = function () {
         }
     })
 
-    let objects = 0;
     let digits_isOpen = false;
     let getDigit = (id) => {
         let cell = document.getElementById(id);
@@ -52,7 +51,6 @@ window.onload = function () {
                         if (!cell.classList.contains("full")) {
                             let p = Render("span", "class", "content");
                             p.innerHTML = btn.value;
-                            objects++;
                             cell.appendChild(p);
                             cell.classList.add("full");
                         } else {
@@ -61,9 +59,6 @@ window.onload = function () {
                         g.style.opacity = "1";
                         wind.remove();
                         digits_isOpen = false;
-                        if (objects === 33) {
-
-                        }
                     })
                 }
                 document.getElementsByTagName("body")[0].appendChild(wind);
@@ -150,17 +145,20 @@ window.onload = function () {
         }
     }
 
-    let sums = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
-    let game0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
-    ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
+    
+
 
     let game = new Game();
     game.render();
 
+    let s0 = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
+    let g0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
+    ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
+
     addHint("31", "44", "45", 4, 2, 1);
-    for (let i = 0; i < game0.length; i++) {
-        design(game0[i]);
-        sum(game0[i][0], sums[i]);
+    for (let i = 0; i < g0.length; i++) {
+        design(g0[i]);
+        sum(g0[i][0], s0[i]);
     }
 
     function checkSection(section, numbers) {
@@ -174,8 +172,8 @@ window.onload = function () {
     document.getElementById("finish-game").addEventListener("click", function () {
         let message = document.getElementById("result-game");
         let val = 0;
-        for (let i = 0; i < sums.length; i++) {
-            if (checkSection(sums[i], game0[i])) val++;
+        for (let i = 0; i < s0.length; i++) {
+            if (checkSection(s0[i], g0[i])) val++;
         }
         let row0 = [], row1 = [], row2 = [], row3 = [], row4 = [], row5 = [];
         let col0 = [], col1 = [], col2 = [], col3 = [], col4 = [], col5 = [];
