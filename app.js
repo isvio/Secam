@@ -68,8 +68,8 @@ window.onload = function () {
 
     let sections0 = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
 
-    let game0 = [['00', '01', '11'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['30', '31', '21'], ['33', '32', '22'],
-    ['13', '23'], ['14', '15'], ['24', '25'], ['34', '35', '45'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
+    let game0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
+    ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
 
     let colors0 = ['#ADD8E6', '#2a9d8f', '#e9c46a', '#6B8E23', '#e76f51', '#313e43',
         '#46726f', '#800000', '#A0522D', '#b47d74', '#FF6347', '#A0522D', '#F4A460', '#00C389', '#CD5C5C', '#1B8BBF'];
@@ -95,14 +95,14 @@ window.onload = function () {
         return obj;
     }
 
-    document.getElementById("help").addEventListener("click", function() {
-      let winh = document.getElementById("help-window");
-      if(winh.style.display === "none") {
-        winh.style.display = "block"; 
-      } else {
-        winh.style.display = "none"; 
-      }
-      
+    document.getElementById("help").addEventListener("click", function () {
+        let winh = document.getElementById("help-window");
+        if (winh.style.display === "none") {
+            winh.style.display = "block";
+        } else {
+            winh.style.display = "none";
+        }
+
     })
 
 
@@ -200,22 +200,92 @@ window.onload = function () {
                 document.getElementById(section[1]).style.borderBottom = com;
                 document.getElementById(section[2]).style.borderTop = com;
             }
-            if (section[0][0] === section[1][0] && section[1][1] === section[2][1]) {
+            //      if (section[0][0] === section[1][0] && section[1][1] === section[2][1]) {
 
-                if (section[0][1] < section[1][1] && section[1][0] < section[2][0])
-                    border(section[2], section[0], section[1], section[1]);
+            // if (section[0][1] < section[1][1] && section[1][0] < section[2][0])
+            //     border(section[2], section[0], section[1], section[1]);
 
-                if (section[2][0] < section[1][0] && section[1][1] < section[0][1])
-                    border(section[1], section[1], section[2], section[0]);
+            // if (section[2][0] < section[1][0] && section[1][1] < section[0][1])
+            //     border(section[1], section[1], section[2], section[0]);
 
-                if (section[1][1] < section[0][1] && section[1][0] > section[2][0])
-                    border(section[2], section[1], section[1], section[0]);
 
-                if (section[0][1] < section[1][1] && section[1][0] > section[2][0])
-                    border(section[2], section[1], section[1], section[0]);
+
+
+            // if (section[1][1] < section[0][1] && section[1][0] < section[2][0])
+            //     border(section[0], section[1], section[1], section[2]);
+
+
+
+            // if (section[0][1] < section[1][1] && section[1][0] > section[2][0])
+            //     border(section[2], section[1], section[1], section[0]);
+            //     }
+
+
+            if (section[1][1] === section[0][1] && section[2][0] === section[1][0]) {
+                if (section[1][0] < section[0][0] && section[1][1] < section[2][1])
+                    border(section[0], section[1], section[1], section[2]);
+
+
+                if (section[1][0] > section[0][0] && section[1][1] < section[2][1])
+                    border(section[1], section[1], section[0], section[2]);
+
+                if (section[1][0] > section[0][0] && section[1][1] > section[2][1])
+                    border(section[1], section[2], section[0], section[1]);
+
+                if (section[1][0] < section[0][0] && section[1][1] > section[2][1])
+                    border(section[0], section[2], section[1], section[1]);
             }
+
+
+            // if (section[1][1] === section[0][1] && section[2][0] === section[1][0] &&
+            //     section[1][0] < section[0][0] && section[1][1] < section[2][1])
+            //     border(section[0], section[1], section[1], section[2]);
+
+
+            // if (section[1][1] === section[0][1] && section[2][0] === section[1][0] &&
+            //     section[1][0] > section[0][0] && section[1][1] < section[2][1])
+            //     border(section[1], section[1], section[0], section[2]);
+
+            // if (section[1][1] === section[0][1] && section[2][0] === section[1][0] &&
+            //     section[1][0] > section[0][0] && section[1][1] > section[2][1])
+            //     border(section[1], section[2], section[0], section[1]);
+
+            // if (section[1][1] === section[0][1] && section[2][0] === section[1][0] &&
+            //     section[1][0] < section[0][0] && section[1][1] > section[2][1])
+            //     border(section[0], section[2], section[1], section[1]);
+
         }
     }
+
+    // design(["10", "00", "01"]);
+    // design(["20", "30", "31"]);
+    // design(["23", "33", "32"]);
+    // design(["13", "03", "02"]);
+
+    // design(["35", "25", "24"]);
+    //  design(["02","03", "13"]);
+    //design(["04","05", "15"]);
+    // design(["42","43", "53"]);
+
+
+    // design(["31","30", "20"]);
+    // design(["53","52", "42"]);
+    // design(["15","14", "04"]);
+    // design(["23","22", "12"]);
+
+
+    // design(["31","30", "20"]);
+
+    //design(["00","01", "02"]);
+    // design(["42","43", "44"]);
+    // design(["51","52", "53"]);
+
+    // design(["50","51"]);
+    // design(["14","15"]);
+
+    //design(["02","12"]);
+    //design(["35","45"]);
+    //design(["41","51"]);
 
     for (let i = 0; i < game0.length; i++) {
         design(game0[i]);
