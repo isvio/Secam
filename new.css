@@ -7,6 +7,7 @@ body, html {
     background-color: #eeeeee;
     color: #424242;
     user-select: none;
+    height: 100%;
 }
 
 header {
@@ -127,7 +128,7 @@ sub {
 }
 
 #help-window {
-    background-color: #eeeeee;;
+    background-color: #eeeeee;
     position: fixed;
     top: 30px;
     width: 95%;
@@ -139,6 +140,56 @@ sub {
     word-wrap: break-word;
     font-size: 15px;
     text-align: center;
+}
+
+#levels {
+    background-color: #eeeeee;
+    height: 100%;
+    font-size: 15px;
+    margin: 30px;
+    padding-top: 80px;
+    text-align: center;
+
+}
+
+#levels-origin {
+    padding-top: 20px;
+}
+
+@media (max-width: 400px) {
+    #levels {
+        width: 100%;
+    }
+    #levels-origin {
+        display: grid;
+        grid-row-gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+@media (min-width: 400px) {
+    #levels {
+        width: 500px;
+        margin: auto;
+    
+    }
+    #levels-origin {
+        display: grid;
+        gap: 10px;
+        grid-row-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+#levels h2 {
+    color:  #7aadd6;
+    margin-left: -50px;
+}
+
+#levels img {
+    width: 100px;
+    opacity: .5;
 }
 
 .hint {

@@ -24,6 +24,12 @@ window.onload = function () {
         return obj;
     }
 
+    let Image = (value) => {
+        let obj = document.createElement("img");
+        obj.setAttribute("src", value);
+        return obj;
+    }
+
     document.getElementById("help").addEventListener("click", function () {
         let winh = document.getElementById("help-window");
         if (winh.style.display === "none") {
@@ -93,9 +99,7 @@ window.onload = function () {
         p.innerHTML = value;
         org.appendChild(p);
     }
-
     function addHint(id1, id2, id3, val1, val2, val3) {
-
         createHint(id1, val1);
         createHint(id2, val2);
         createHint(id3, val3);
@@ -108,7 +112,6 @@ window.onload = function () {
         document.getElementById(bottom).style.borderBottom = com;
         document.getElementById(left).style.borderLeft = com;
     }
-
     let design = (section) => {
         if (section.length === 2) {
             if (section[0][0] === section[1][0]) {
@@ -144,9 +147,9 @@ window.onload = function () {
                     border(section[0], section[2], section[1], section[1]);
             }
         }
-        if(section.length === 4) {
-            if(section[0][1] === section[1][1] && section[1][0] === section[2][0] && section[2][0] === section[3][0]) {
-                if(section[0][0] < section[1][0] && section[2][1] > section[3][1] && section[3][1] < section[1][1]) {
+        if (section.length === 4) {
+            if (section[0][1] === section[1][1] && section[1][0] === section[2][0] && section[2][0] === section[3][0]) {
+                if (section[0][0] < section[1][0] && section[2][1] > section[3][1] && section[3][1] < section[1][1]) {
                     border(section[1], section[2], section[0], section[1]);
                     document.getElementById(section[3]).style.borderRight = com;
                     document.getElementById(section[2]).style.borderLeft = com;
@@ -162,22 +165,72 @@ window.onload = function () {
     let g0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
     ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
 
+
     let s1 = [12, 10, 7, 8, 3, 7, 6, 9, 6, 4, 13, 9, 11, 14, 6, 1];
     let g1 = [['00', '10', '20'], ['01', '11'], ['02', '12'], ['03', '04'], ['05'], ['21', '22'], ['13', '23'], ['25', '15', '14'], ['30', '40'], ['31', '41', '42'],
     ['24', '34', '33', '32'], ['43', '44'], ['35', '45'], ['50', '51', '52'], ['53', '54'], ['55']];
 
-   // addHint("31", "44", "45", 4, 2, 1); //s0
-   createHint('10', 5);
-   createHint('33', 4);
-    //addHint('10','33', 5,4); //s1
-    // for (let i = 0; i < g0.length; i++) {
-    //     design(g0[i]);
-    //     sum(g0[i][0], s0[i]);
-    // }
+    let pics = ["https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/VQkr1YL/g1.png", "https://i.ibb.co/4MJ40ZP/g0.png",
+        "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
+    let levels_origin = document.getElementById("levels-origin");
+    let levels = document.getElementById("levels");
 
-    for (let i = 0; i < g0.length; i++) {
-        design(g1[i]);
-        sum(g1[i][0], s1[i]);
+    let level;
+    class Level {
+        constructor(id, src) {
+            this.id = id;
+            this.src = src;
+        }
+        add() {
+            let img = Image(this.src);
+            img.setAttribute("id", this.id);
+            levels_origin.appendChild(img);
+            img.addEventListener("click", function () {
+                levels.style.display = "none";
+                switch (this.id) {
+                    case '0':
+                        level = 0;
+                        console.log("ai selectat nivelul 0");
+                        for (let i = 0; i < 16; i++) {
+                            design(g0[i]);
+                            sum(g0[i][0], s0[i]);
+                        }
+                        addHint("31", "44", "45", 4, 2, 1);
+                        break;
+                    case '1':
+                        level = 1;
+                        console.log("ai selectat nivelul 1");
+                        for (let i = 0; i < 16; i++) {
+                            design(g1[i]);
+                            sum(g1[i][0], s1[i]);
+                        }
+                        createHint('10', 5);
+                        createHint('33', 4);
+                        break;
+                    case '2':
+                        level = 2;
+                        console.log("ai selectat nivelul 2");
+                        break;
+                    case '3':
+                        level = 3;
+                        console.log("ai selectat nivelul 3");
+                        break;
+                    case '4':
+                        level = 4;
+                        console.log("ai selectat nivelul 4");
+                        break;
+                    case '5':
+                        level = 5;
+                        console.log("ai selectat nivelul 5");
+                        break;
+                }
+            })
+        }
+    }
+
+    for (let i = 0; i < pics.length; i++) {
+        let obj = new Level(i, pics[i]);
+        obj.add();
     }
 
     function checkSection(section, numbers) {
@@ -191,8 +244,37 @@ window.onload = function () {
     document.getElementById("finish-game").addEventListener("click", function () {
         let message = document.getElementById("result-game");
         let val = 0;
-        for (let i = 0; i < s0.length; i++) {
-            if (checkSection(s1[i], g1[i])) val++;
+        switch (level) {
+            case 0:
+                for (let i = 0; i < 16; i++) {
+                    if (checkSection(s0[i], g0[i])) val++;
+                }
+                break;
+            case 1:
+                for (let i = 0; i < 16; i++) {
+                    if (checkSection(s1[i], g1[i])) val++;
+                }
+                break;
+            case 2:
+                for (let i = 0; i < 16; i++) {
+                    if (checkSection(s2[i], g2[i])) val++;
+                }
+                break;
+            case 3:
+                for (let i = 0; i < 16; i++) {
+                    if (checkSection(s3[i], g3[i])) val++;
+                }
+                break;
+            case 4:
+                for (let i = 0; i < 16; i++) {
+                    if (checkSection(s4[i], g4[i])) val++;
+                }
+                break;
+            case 5:
+                for (let i = 0; i < 16; i++) {
+                    if (checkSection(s5[i], g5[i])) val++;
+                }
+                break;
         }
         let row0 = [], row1 = [], row2 = [], row3 = [], row4 = [], row5 = [];
         let col0 = [], col1 = [], col2 = [], col3 = [], col4 = [], col5 = [];
