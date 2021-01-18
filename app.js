@@ -97,7 +97,9 @@ window.onload = function () {
     function addHint(id1, id2, id3, val1, val2, val3) {
         createHint(id1, val1);
         createHint(id2, val2);
-        createHint(id3, val3);
+        if(id3 !== null && !val3 !== null) {
+            createHint(id3, val3);
+        }
     }
 
     let com = "1px dashed rgb(115, 118, 119)";
@@ -155,6 +157,7 @@ window.onload = function () {
     let s1 = [12, 10, 7, 8, 3, 7, 6, 9, 6, 4, 13, 9, 11, 14, 6, 1];
     let g1 = [['00', '10', '20'], ['01', '11'], ['02', '12'], ['03', '04'], ['05'], ['21', '22'], ['13', '23'], ['25', '15', '14'], ['30', '40'], ['31', '41', '42'],
     ['24', '34', '33', '32'], ['43', '44'], ['35', '45'], ['50', '51', '52'], ['53', '54'], ['55']];
+
     addHint("31", "44", "45", 4, 2, 1); //s0
    // addHint('10','33', 5,4); //s1
     for (let i = 0; i < g0.length; i++) {
