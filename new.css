@@ -186,3 +186,9 @@ sub {
 .hint {
     background-color: rgb(201, 191, 191);
 }
+
+#result-game {
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+}
