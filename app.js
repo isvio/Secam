@@ -221,20 +221,13 @@ window.onload = function () {
     }
 
     document.getElementsByClassName("finish-game")[0].addEventListener("click", function () {
-        //    console.log("testing game...");
         let message = document.getElementById("result-game");
         let val = 0;
         for (let i = 0; i < sums.length; i++) {
             if (checkSection(sums[i], game0[i])) val++;
         }
-        //  console.log(val);
-
         let row0 = [], row1 = [], row2 = [], row3 = [], row4 = [], row5 = [];
         let col0 = [], col1 = [], col2 = [], col3 = [], col4 = [], col5 = [];
-
-        //   console.log(g);
-
-
         for (let i = 0, j = 0; j < 6; j++) {
             row0.push(document.getElementById(i + "" + j).lastChild.innerHTML);
         }
@@ -272,16 +265,17 @@ window.onload = function () {
         for (let j = 5, i = 0; i < 6; i++) {
             col5.push(document.getElementById(i + "" + j).lastChild.innerHTML);
         }
-
         if (!hasDuplicates(row0) && !hasDuplicates(row1) && !hasDuplicates(row2)
             && !hasDuplicates(row3) && !hasDuplicates(row4) && !hasDuplicates(row5)
             && !hasDuplicates(col0) && !hasDuplicates(col1) && !hasDuplicates(col2)
             && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)
             && val === 16) {
             message.style.color = "#1b998b";
-            message.style.fontWeight = "bold";
             message.innerHTML = "Congratulations!!!";
             g.classList.add("finished");
+        } else {
+            message.style.color = "#ff0f0f";
+            message.innerHTML = "Wrong! Try again...";
         }
 
     })
