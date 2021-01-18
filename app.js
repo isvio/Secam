@@ -95,11 +95,10 @@ window.onload = function () {
     }
 
     function addHint(id1, id2, id3, val1, val2, val3) {
+
         createHint(id1, val1);
         createHint(id2, val2);
-        if(id3 !== null && !val3 !== null) {
-            createHint(id3, val3);
-        }
+        createHint(id3, val3);
     }
 
     let com = "1px dashed rgb(115, 118, 119)";
@@ -167,11 +166,18 @@ window.onload = function () {
     let g1 = [['00', '10', '20'], ['01', '11'], ['02', '12'], ['03', '04'], ['05'], ['21', '22'], ['13', '23'], ['25', '15', '14'], ['30', '40'], ['31', '41', '42'],
     ['24', '34', '33', '32'], ['43', '44'], ['35', '45'], ['50', '51', '52'], ['53', '54'], ['55']];
 
-    addHint("31", "44", "45", 4, 2, 1); //s0
-   // addHint('10','33', 5,4); //s1
+   // addHint("31", "44", "45", 4, 2, 1); //s0
+   createHint('10', 5);
+   createHint('33', 4);
+    //addHint('10','33', 5,4); //s1
+    // for (let i = 0; i < g0.length; i++) {
+    //     design(g0[i]);
+    //     sum(g0[i][0], s0[i]);
+    // }
+
     for (let i = 0; i < g0.length; i++) {
-        design(g0[i]);
-        sum(g0[i][0], s0[i]);
+        design(g1[i]);
+        sum(g1[i][0], s1[i]);
     }
 
     function checkSection(section, numbers) {
@@ -186,7 +192,7 @@ window.onload = function () {
         let message = document.getElementById("result-game");
         let val = 0;
         for (let i = 0; i < s0.length; i++) {
-            if (checkSection(s0[i], g0[i])) val++;
+            if (checkSection(s1[i], g1[i])) val++;
         }
         let row0 = [], row1 = [], row2 = [], row3 = [], row4 = [], row5 = [];
         let col0 = [], col1 = [], col2 = [], col3 = [], col4 = [], col5 = [];
