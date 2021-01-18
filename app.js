@@ -220,7 +220,7 @@ window.onload = function () {
         return s === section;
     }
 
-    document.getElementsByClassName("finish-game")[0].addEventListener("click", function () {
+    document.getElementById("finish-game").addEventListener("click", function () {
         let message = document.getElementById("result-game");
         let val = 0;
         for (let i = 0; i < sums.length; i++) {
