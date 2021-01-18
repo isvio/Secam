@@ -1,63 +1,9 @@
 window.onload = function () {
     let g = document.getElementById("game");
 
-
-
-
-
-
-    // function getID(e) {
-    //     var x = e.target.id.toString();
-    //     let input = document.getElementById(e.target.id).value;
-    //     switch (x[0]) {
-    //         case '0':
-    //             row0.push(input);
-    //             break;
-    //         case '1':
-    //             row1.push(input);
-    //             break;
-    //         case '2':
-    //             row2.push(input);
-    //             break;
-    //         case '3':
-    //             row3.push(input);
-    //             break;
-    //         case '4':
-    //             row4.push(input);
-    //             break;
-    //         case '5':
-    //             row5.push(input);
-    //             break;
-    //     }
-    //     switch (x[1]) {
-    //         case '0':
-    //             col0.push(input);
-    //             break;
-    //         case '1':
-    //             col1.push(input);
-    //             break;
-    //         case '2':
-    //             col2.push(input);
-    //             break;
-    //         case '3':
-    //             col3.push(input);
-    //             break;
-    //         case '4':
-    //             col4.push(input);
-    //             break;
-    //         case '5':
-    //             col5.push(input);
-    //             break;
-    //     }
-    // }
-
     function hasDuplicates(array) {
         return (new Set(array)).size !== array.length;
     }
-
-    let sums = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
-    let game0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
-    ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
 
     let sum = (id, s) => {
         let origin = document.getElementById(id).firstChild;
@@ -204,8 +150,13 @@ window.onload = function () {
         }
     }
 
+    let sums = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
+    let game0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
+    ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
+
     let game = new Game();
     game.render();
+
     addHint("31", "44", "45", 4, 2, 1);
     for (let i = 0; i < game0.length; i++) {
         design(game0[i]);
@@ -277,61 +228,7 @@ window.onload = function () {
             message.style.color = "#ff0f0f";
             message.innerHTML = "Wrong! Try again...";
         }
-
     })
-
-
-    // var val = 0,
-    //     message = document.getElementById("result-game"),
-    //     inputs = document.getElementsByTagName("input");
-    // for (var count = 0; count < 16; count++) {
-    //     if (checkSection(sections0[count], game0[count])) val++;
-    // }
-    // if (!hasDuplicates(row0) && !hasDuplicates(row1) && !hasDuplicates(row2)
-    //     && !hasDuplicates(row3) && !hasDuplicates(row4) && !hasDuplicates(row5)
-    //     && !hasDuplicates(col0) && !hasDuplicates(col1) && !hasDuplicates(col2)
-    //     && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)
-    //     && val === 16) {
-    //     message.style.color = "#1b998b";
-    //     message.style.fontSize = "18px";
-    //     message.style.fontWeight = "bold";
-    //     message.innerHTML = "Congratulations, you solved everything";
-    //     for (var count = 0; count < inputs.length; count++) {
-    //         inputs[count].disabled = "true";
-    //     }
-    // } else {
-    //     let tryAgainButtonClick = document.getElementById("repeat-game");
-    //     message.style.fontSize = "18px";
-    //     message.style.color = "#e63946";
-    //     message.style.fontWeight = "bold";
-    //     message.innerHTML = "Good try, but you failed!";
-    //     verifySolutionButtonClick.style.display = "none";
-    //     tryAgainButtonClick.style.display = "block";
-    //     tryAgainButtonClick.addEventListener("click", function () {
-    //         tryAgainButtonClick.style.display = "none";
-    //         verifySolutionButtonClick.style.display = "block";
-    //         for (var count = 0; count < inputs.length; count++) {
-    //             inputs[count].value = "";
-    //         }
-    //         addHint();
-    //         message.innerHTML = "";
-    //         row0.length = 0;
-    //         row1.length = 0;
-    //         row2.length = 0;
-    //         row3.length = 0;
-    //         row4.length = 0;
-    //         row5.length = 0;
-    //         col0.length = 0;
-    //         col1.length = 0;
-    //         col2.length = 0;
-    //         col3.length = 0;
-    //         col4.length = 0;
-    //     });
-    // }
-
-
-
-
 }
 
 
