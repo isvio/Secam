@@ -145,6 +145,15 @@ window.onload = function () {
                     border(section[0], section[2], section[1], section[1]);
             }
         }
+        if(section.length === 4) {
+            if(section[0][1] === section[1][1] && section[1][0] === section[2][0] && section[2][0] === section[3][0]) {
+                if(section[0][0] < section[1][0] && section[2][1] > section[3][1] && section[3][1] < section[1][1]) {
+                    border(section[1], section[2], section[0], section[1]);
+                    document.getElementById(section[3]).style.borderRight = com;
+                    document.getElementById(section[2]).style.borderLeft = com;
+                }
+            }
+        }
     }
 
     let game = new Game();
