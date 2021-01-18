@@ -1,19 +1,7 @@
 window.onload = function () {
     let g = document.getElementById("game");
 
-    let row0 = [],
-        row1 = [],
-        row2 = [],
-        row3 = [],
-        row4 = [],
-        row5 = [];
 
-    let col0 = [],
-        col1 = [],
-        col2 = [],
-        col3 = [],
-        col4 = [],
-        col5 = [];
 
 
 
@@ -224,15 +212,6 @@ window.onload = function () {
         sum(game0[i][0], sums[i]);
     }
 
-    // function calculateSum(section, color) {
-    //     let header = document.getElementsByTagName("header")[0];
-    //     let span = document.createElement("span");
-    //     let val = document.createTextNode(section);
-    //     span.appendChild(val);
-    //     span.style.color = color;
-    //     header.appendChild(span);
-    // }
-
     function checkSection(section, numbers) {
         let sum = 0, s = 0;
         for (let i = 0; i < numbers.length; i++) {
@@ -242,15 +221,63 @@ window.onload = function () {
     }
 
     document.getElementsByClassName("finish-game")[0].addEventListener("click", function () {
-        console.log("testing game...");
+        //    console.log("testing game...");
         let message = document.getElementById("result-game");
         let val = 0;
-
         for (let i = 0; i < sums.length; i++) {
             if (checkSection(sums[i], game0[i])) val++;
         }
-        console.log(val);
-        if (val === 16) {
+        //  console.log(val);
+
+        let row0 = [], row1 = [], row2 = [], row3 = [], row4 = [], row5 = [];
+        let col0 = [], col1 = [], col2 = [], col3 = [], col4 = [], col5 = [];
+
+        //   console.log(g);
+
+
+        for (let i = 0, j = 0; j < 6; j++) {
+            row0.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let i = 1, j = 0; j < 6; j++) {
+            row1.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let i = 2, j = 0; j < 6; j++) {
+            row2.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let i = 3, j = 0; j < 6; j++) {
+            row3.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let i = 4, j = 0; j < 6; j++) {
+            row4.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let i = 5, j = 0; j < 6; j++) {
+            row5.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+
+        for (let j = 0, i = 0; i < 6; i++) {
+            col0.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let j = 1, i = 0; i < 6; i++) {
+            col1.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let j = 2, i = 0; i < 6; i++) {
+            col2.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let j = 3, i = 0; i < 6; i++) {
+            col3.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let j = 4, i = 0; i < 6; i++) {
+            col4.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+        for (let j = 5, i = 0; i < 6; i++) {
+            col5.push(document.getElementById(i + "" + j).lastChild.innerHTML);
+        }
+
+        if (!hasDuplicates(row0) && !hasDuplicates(row1) && !hasDuplicates(row2)
+            && !hasDuplicates(row3) && !hasDuplicates(row4) && !hasDuplicates(row5)
+            && !hasDuplicates(col0) && !hasDuplicates(col1) && !hasDuplicates(col2)
+            && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)
+            && val === 16) {
             message.style.color = "#1b998b";
             message.style.fontWeight = "bold";
             message.innerHTML = "Congratulations!!!";
