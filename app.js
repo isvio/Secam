@@ -1,5 +1,17 @@
 window.onload = function () {
     let g = document.getElementById("game");
+    let light = document.getElementById("get-light"),
+        night = document.getElementById("get-night");
+    light.addEventListener("click", function () {
+        document.body.setAttribute("class", "light");
+        light.style.display = "none";
+        night.style.display = "block";
+    });
+    night.addEventListener("click", function () {
+        document.body.setAttribute("class", "night");
+        night.style.display = "none";
+        light.style.display = "block";
+    });
 
     function hasDuplicates(array) {
         return (new Set(array)).size !== array.length;
@@ -209,6 +221,10 @@ window.onload = function () {
                         break;
                     case '2':
                         level = 2;
+                        for (let i = 0; i < 16; i++) {
+                            design(g2[i]);
+                            sum(g2[i][0], s2[i]);
+                        }
                         console.log("ai selectat nivelul 2");
                         break;
                     case '3':
