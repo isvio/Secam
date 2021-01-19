@@ -170,8 +170,6 @@ window.onload = function () {
                 document.getElementById(section[2]).style.borderRight = com;
                 document.getElementById(section[3]).style.borderLeft = com;
             }
-
-
             if (section[0][1] === section[1][1] && section[1][0] === section[2][0] && section[2][0] === section[3][0]) {
                 if (section[0][0] < section[1][0] && section[2][1] > section[3][1] && section[3][1] < section[1][1]) {
                     border(section[1], section[2], section[0], section[1]);
@@ -184,6 +182,13 @@ window.onload = function () {
                     border(section[1], section[3], section[2], section[2]);
                     document.getElementById(section[1]).style.borderBottom = com;
                     document.getElementById(section[0]).style.borderTop = com;
+                }
+            }
+            if (section[0][1] === section[1][1] && section[2][1] === section[3][1] && section[1][0] === section[2][0]) {
+                if (section[0][0] < section[1][0] && section[1][1] < section[2][1] && section[2][0] < section[3][0]) {
+                    border(section[1], section[1], section[0], section[2]);
+                    document.getElementById(section[2]).style.borderBottom = com;
+                    document.getElementById(section[3]).style.borderTop = com;
                 }
             }
         }
@@ -219,8 +224,14 @@ window.onload = function () {
     let g3 = [['00', '10'], ['01', '11', '12'], ['02', '03'], ['24', '14', '13'], ['15', '05', '04'], ['20', '30', '31'], ['42', '32', '22', '21'], ['23', '33', '34'],
     ['25', '35', '45'], ['50'], ['51', '41', '40'], ['43', '44'], ['52', '53', '54'], ['55']];
 
+    let s4 = [13, 10, 3, 5, 11, 12, 14, 11, 8, 10, 4, 7, 5, 11, 2];
+    let g4 = [['00', '10', '11', '21'], ['01', '02'], ['03', '04'], ['05'], ['12', '22', '23'], ['13', '14', '15'], ['20', '30', '31'], ['43', '33', '32'],
+    ['24', '34', '44'], ['25', '35', '45'], ['50'], ['51', '41', '40'], ['42', '52'], ['53', '54'], ['55']];
+
+
+
     let pics = ["https://i.ibb.co/vV983dY/g0.png", "https://i.ibb.co/pvhTNWD/g1.png", "https://i.ibb.co/Fgmy5s5/g2.png",
-        "https://i.ibb.co/NKXNHFQ/g3.png", "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
+        "https://i.ibb.co/NKXNHFQ/g3.png", "https://i.ibb.co/PTSHf6c/g4.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
     let levels_origin = document.getElementById("levels-origin");
     let levels = document.getElementById("levels");
 
@@ -273,6 +284,13 @@ window.onload = function () {
                         break;
                     case '4':
                         level = 4;
+                        for (let i = 0; i < 15; i++) {
+                            design(g4[i]);
+                            sum(g4[i][0], s4[i]);
+                        }
+                        addHint("21", "23", "33", 2, 6, 2);
+                        createHint('14', 5);
+                        createHint('44', 3);
                         break;
                     case '5':
                         level = 5;
@@ -320,7 +338,7 @@ window.onload = function () {
                 }
                 break;
             case 4:
-                for (let i = 0; i < 16; i++) {
+                for (let i = 0; i < 1; i++) {
                     if (checkSection(s4[i], g4[i])) val++;
                 }
                 break;
