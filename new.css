@@ -224,38 +224,44 @@ sub {
     color: rgb(100, 117, 158) !important;
 }
 
-@media (max-width: 400px) {
+#levels img {
+    width: 100%;
+    height: auto;
+    opacity: .8;
+}
 
+@media (max-width: 530px) {
     #levels {
         width: 100%;
     }
     #levels-origin {
+        padding: 10px;
+        width: 80%;
+        margin: auto;
         display: grid;
-        grid-row-gap: 30px;
+        gap: 10px;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
     }
+
+    #levels img {
+        width: 100%;
+        height: auto;
+        opacity: .8;
+
+    }
 }
-@media (min-width: 400px) {
+@media (min-width: 530px) {
     #levels {
         width: 500px;
         margin: auto;
-    
     }
     #levels-origin {
         display: grid;
         gap: 10px;
-        grid-row-gap: 30px;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
     }
-}
-
-
-#levels img {
-    width: 100px;
-    height: auto;
-    opacity: .8;
 }
 
 .hint {
