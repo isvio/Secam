@@ -360,7 +360,7 @@ window.onload = function () {
     }
 
     let demo = new Level(8, pics[0]);
-    // demo.add();
+     demo.add();
 
     function checkSection(section, numbers) {
         let sum = 0, s = 0;
@@ -455,14 +455,15 @@ window.onload = function () {
         if (!hasDuplicates(row0) && !hasDuplicates(row1) && !hasDuplicates(row2)
             && !hasDuplicates(row3) && !hasDuplicates(row4) && !hasDuplicates(row5)
             && !hasDuplicates(col0) && !hasDuplicates(col1) && !hasDuplicates(col2)
-            && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)
-            && val === 16) {
-            message.style.color = "#1b998b";
-            message.innerHTML = "Congratulations!!!";
-            g.classList.add("finished");
-        } else {
-            message.style.color = "#ff0f0f";
-            message.innerHTML = "Wrong! Try again...";
+            && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)) {
+            if (val === 14 || val === 15 || val === 16) {
+                message.style.color = "#1b998b";
+                message.innerHTML = "Congratulations!!!";
+                g.classList.add("finished");
+            } else {
+                message.style.color = "#ff0f0f";
+                message.innerHTML = "Wrong! Try again...";
+            }
         }
     })
 }
