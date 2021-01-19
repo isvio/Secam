@@ -198,9 +198,11 @@ window.onload = function () {
             }
 
 
-            if (section[0][0] === section[3][0] && section[1][0] === section[2][2] && section[0][1] === section[1][1] && section[2][1] === section[3][0]) {
-                border(section[1], section[1], section[0], section[2]);
-                border(section[1], section[3], section[0], section[0]);
+            if (section[0][0] === section[1][0] && section[1][1] === section[2][1] && section[2][0] === section[3][0] && 
+                section[0][0] === section[3][1] && section[0][1] < section[1][1]  && 
+                section[1][0] < section[2][0] && section[2][1] < section[3][1]) {
+                border(section[2], section[2], section[1], section[3]);
+                border(section[2], section[0], section[1], section[1]);
             }
 
 
@@ -214,15 +216,15 @@ window.onload = function () {
                     border(section[1], section[3], section[0], section[3]);
                 }
             }
-            if (section[0][0] === section[1][0] && section[1][0] === section[2][0] && section[2][0] === section[3][0] && 
+            if (section[0][0] === section[1][0] && section[1][0] === section[2][0] && section[2][0] === section[3][0] &&
                 section[3][1] === section[4][1] && section[2][1] === section[4][0]) {
-                    document.getElementById(section[0]).style.borderRight = com;
-                    document.getElementById(section[1]).style.borderLeft = com;
-                    document.getElementById(section[1]).style.borderRight = com;
-                    document.getElementById(section[2]).style.borderLeft = com;
-                    document.getElementById(section[2]).style.borderRight = com;
-                    document.getElementById(section[3]).style.borderLeft = com;
-                    border(section[4], section[2], section[3], section[3]);
+                document.getElementById(section[0]).style.borderRight = com;
+                document.getElementById(section[1]).style.borderLeft = com;
+                document.getElementById(section[1]).style.borderRight = com;
+                document.getElementById(section[2]).style.borderLeft = com;
+                document.getElementById(section[2]).style.borderRight = com;
+                document.getElementById(section[3]).style.borderLeft = com;
+                border(section[4], section[2], section[3], section[3]);
 
             }
         }
@@ -266,7 +268,7 @@ window.onload = function () {
 
     let s5 = [6, 5, 22, 9, 12, 12, 7, 11, 9, 9, 4, 4, 2, 14];
     let g5 = [['00', '10'], ['11'], ['24', '23', '22', '12', '02', '01'], ['03', '13', '14'], ['15', '05', '04'], ['20', '21', '30', '31'], ['32', '33', '34'], ['25', '35'],
-    ['40', '41'], ['50', '51'], ['52'], ['44', '45'], ['55'], ['43', '53', '54', '42']];
+    ['40', '41'], ['50', '51'], ['52'], ['44', '45'], ['55'], ['42', '43', '53', '54']];
 
     let s6 = [10, 2, 14, 7, 9, 10, 17, 7, 2, 6, 21, 13, 1, 7];
     let g6 = [['00', '01', '10', '11'], ['12'], ['13', '03', '02'], ['04', '05'], ['14', '15'], ['20', '30'], ['21', '22', '23', '24', '34'],
@@ -292,17 +294,18 @@ window.onload = function () {
                 switch (this.id) {
                     case '0':
                         level = 1;
-                        for (let i = 0; i < 16; i++) {
+                        let alls1 = s1.length;
+                        for (let i = 0; i < alls1; i++) {
                             design(g1[i]);
                             sum(g1[i][0], s1[i]);
                         }
                         createHint('10', 5);
                         createHint('33', 4);
-
                         break;
                     case '1':
                         level = 2;
-                        for (let i = 0; i < 16; i++) {
+                        let alls2 = s2.length;
+                        for (let i = 0; i < alls2; i++) {
                             design(g2[i]);
                             sum(g2[i][0], s2[i]);
                         }
@@ -310,7 +313,8 @@ window.onload = function () {
                         break;
                     case '2':
                         level = 3;
-                        for (let i = 0; i < 16; i++) {
+                        let alls3 = s3.length;
+                        for (let i = 0; i < alls3; i++) {
                             design(g3[i]);
                             sum(g3[i][0], s3[i]);
                         }
@@ -319,7 +323,8 @@ window.onload = function () {
                         break;
                     case '3':
                         level = 4;
-                        for (let i = 0; i < 14; i++) {
+                        let alls4 = s4.length;
+                        for (let i = 0; i < alls4; i++) {
                             design(g4[i]);
                             sum(g4[i][0], s4[i]);
                         }
@@ -329,7 +334,8 @@ window.onload = function () {
                         break;
                     case '4':
                         level = 5;
-                        for (let i = 0; i < s5.length; i++) {
+                        let alls5 = s5.length;
+                        for (let i = 0; i < alls5; i++) {
                             design(g5[i]);
                             sum(g5[i][0], s5[i]);
                         }
@@ -337,7 +343,8 @@ window.onload = function () {
                         break;
                     case '5':
                         level = 6;
-                        for (let i = 0; i < 14; i++) {
+                        let alls6 = s6.length;
+                        for (let i = 0; i < alls6; i++) {
                             design(g6[i]);
                             sum(g6[i][0], s6[i]);
                         }
@@ -366,7 +373,7 @@ window.onload = function () {
     }
 
     let demo = new Level(8, pics[0]);
-  // demo.add();
+    // demo.add();
 
     function checkSection(section, numbers) {
         let sum = 0, s = 0;
