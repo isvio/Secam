@@ -78,7 +78,7 @@ window.onload = function () {
     document.getElementById("help").addEventListener("click", function () {
         let winh = document.getElementById("help-window");
         if (!digits_isOpen) {
-            if(winh.style.display === "none") {
+            if (winh.style.display === "none") {
                 winh.style.display = "block";
             } else {
                 winh.style.display = "none";
@@ -184,6 +184,10 @@ window.onload = function () {
     let g1 = [['00', '10', '20'], ['01', '11'], ['02', '12'], ['03', '04'], ['05'], ['21', '22'], ['13', '23'], ['25', '15', '14'], ['30', '40'], ['31', '41', '42'],
     ['24', '34', '33', '32'], ['43', '44'], ['35', '45'], ['50', '51', '52'], ['53', '54'], ['55']];
 
+    let s2 = [9, 5, 5, 7, 7, 4, 21, 5, 4, 17, 14, 6, 7, 5, 7, 3];
+    let g2 = [['00', '10'], ['01', '02'], ['03'], ['05', '15'], ['11', '21', '20'], ['12', '13'], ['04', '14', '24', '23', '22'], ['25'], ['30', '31'], ['32', '33', '34', '35'],
+    ['51', '41', '40'], ['50'], ['42', '43'], ['44', '45'], ['52', '53', '54'], ['55']];
+
     let pics = ["https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/VQkr1YL/g1.png", "https://i.ibb.co/4MJ40ZP/g0.png",
         "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
     let levels_origin = document.getElementById("levels-origin");
@@ -204,7 +208,6 @@ window.onload = function () {
                 switch (this.id) {
                     case '0':
                         level = 0;
-                        console.log("ai selectat nivelul 0");
                         for (let i = 0; i < 16; i++) {
                             design(g0[i]);
                             sum(g0[i][0], s0[i]);
@@ -213,7 +216,6 @@ window.onload = function () {
                         break;
                     case '1':
                         level = 1;
-                        console.log("ai selectat nivelul 1");
                         for (let i = 0; i < 16; i++) {
                             design(g1[i]);
                             sum(g1[i][0], s1[i]);
@@ -227,19 +229,16 @@ window.onload = function () {
                             design(g2[i]);
                             sum(g2[i][0], s2[i]);
                         }
-                        console.log("ai selectat nivelul 2");
+                        addHint("23", "35", "53", 6, 2, 1);
                         break;
                     case '3':
                         level = 3;
-                        console.log("ai selectat nivelul 3");
                         break;
                     case '4':
                         level = 4;
-                        console.log("ai selectat nivelul 4");
                         break;
                     case '5':
                         level = 5;
-                        console.log("ai selectat nivelul 5");
                         break;
                 }
             })
