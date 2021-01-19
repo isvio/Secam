@@ -79,11 +79,16 @@ header p:first-child {
 
 #help {
     font-weight: 800;
-    right: 2px;
+    right: 5px;
     top: -16px;
     position: fixed;
     font-size: 18px;
     color: var(--primary-color);
+    background-color: rgb(69, 119, 67);
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 5px;
 }
 
 #container {
@@ -188,23 +193,39 @@ sub {
     word-wrap: break-word;
     font-size: 15px;
     text-align: center;
+    font-weight: 600;
+}
+
+#help-window img {
+    padding-top: 12px;
+    width: 30%;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    #help-window img {
+        width: 50%;
+    }
+}
+
+#help-window p:first-child {
+    padding-top: 30px;
 }
 
 #levels {
     background-color:var(--primary-bakground);
     height: 100%;
     font-size: 15px;
-    margin: 30px;
-    padding-top: 80px;
+    padding-top: 50px;
     text-align: center;
-
 }
 
-#levels-origin {
-    padding-top: 20px;
+#levels h2 {
+    color: rgb(100, 117, 158) !important;
 }
 
 @media (max-width: 400px) {
+
     #levels {
         width: 100%;
     }
@@ -230,14 +251,11 @@ sub {
     }
 }
 
-#levels h2 {
-    color: var(--primary-color);
-    margin-left: -50px;
-}
 
 #levels img {
     width: 100px;
-    opacity: .5;
+    height: auto;
+    opacity: .8;
 }
 
 .hint {
