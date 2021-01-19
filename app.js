@@ -170,8 +170,6 @@ window.onload = function () {
                 document.getElementById(section[2]).style.borderRight = com;
                 document.getElementById(section[3]).style.borderLeft = com;
             }
-
-
             if (section[0][1] === section[1][1] && section[1][0] === section[2][0] && section[2][0] === section[3][0]) {
                 if (section[0][0] < section[1][0] && section[2][1] > section[3][1] && section[3][1] < section[1][1]) {
                     border(section[1], section[2], section[0], section[1]);
@@ -200,15 +198,13 @@ window.onload = function () {
             }
 
 
-
             if (section[0][0] === section[3][0] && section[1][0] === section[2][2] && section[0][1] === section[1][1] && section[2][1] === section[3][0]) {
                 border(section[1], section[1], section[0], section[2]);
                 border(section[1], section[3], section[0], section[0]);
             }
+
+
         }
-
-
-
         if (section.length === 5) {
             if (section[0][1] === section[1][1] && section[1][1] === section[2][1] &&
                 section[2][0] === section[3][0] && section[3][0] === section[3][0]) {
@@ -217,6 +213,17 @@ window.onload = function () {
                     border(section[2], section[4], section[1], section[2]);
                     border(section[1], section[3], section[0], section[3]);
                 }
+            }
+            if (section[0][0] === section[1][0] && section[1][0] === section[2][0] && section[2][0] === section[3][0] && 
+                section[3][1] === section[4][1] && section[2][1] === section[4][0]) {
+                    document.getElementById(section[0]).style.borderRight = com;
+                    document.getElementById(section[1]).style.borderLeft = com;
+                    document.getElementById(section[1]).style.borderRight = com;
+                    document.getElementById(section[2]).style.borderLeft = com;
+                    document.getElementById(section[2]).style.borderRight = com;
+                    document.getElementById(section[3]).style.borderLeft = com;
+                    border(section[4], section[2], section[3], section[3]);
+
             }
         }
         if (section.length === 6) {
@@ -262,8 +269,8 @@ window.onload = function () {
     ['40', '41'], ['50', '51'], ['52'], ['44', '45'], ['55'], ['43', '53', '54', '42']];
 
     let s6 = [10, 2, 14, 7, 9, 10, 17, 7, 2, 6, 21, 13, 1, 7];
-    let g6 = [['00', '01', '10', '11'], ['12'], ['13', '03', '02'], ['04', '05'], ['14', '15'], ['20', '30'], ['34', '24', '23', '22', '21'],
-    ['25', '35'], ['31'], ['40', '41'], ['50', '51', '52', '42', '32'], ['33', '43', '44'], ['45'], ['53', '54', '55']];
+    let g6 = [['00', '01', '10', '11'], ['12'], ['13', '03', '02'], ['04', '05'], ['14', '15'], ['20', '30'], ['21', '22', '23', '24', '34'],
+    ['25', '35'], ['31'], ['40', '41'], ['32', '42', '52', '51', '50'], ['33', '43', '44'], ['45'], ['53', '54', '55']];
 
     let pics = ["https://i.ibb.co/pvhTNWD/g1.png", "https://i.ibb.co/Fgmy5s5/g2.png", "https://i.ibb.co/NKXNHFQ/g3.png",
         "https://i.ibb.co/PTSHf6c/g4.png", "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
@@ -316,13 +323,13 @@ window.onload = function () {
                             design(g4[i]);
                             sum(g4[i][0], s4[i]);
                         }
-                          addHint("21", "23", "33", 2, 6, 2);
-                         createHint('14', 5);
-                         createHint('44', 3);
+                        addHint("21", "23", "33", 2, 6, 2);
+                        createHint('14', 5);
+                        createHint('44', 3);
                         break;
                     case '4':
                         level = 5;
-                        for (let i = 0; i < 15; i++) {
+                        for (let i = 0; i < s5.length; i++) {
                             design(g5[i]);
                             sum(g5[i][0], s5[i]);
                         }
@@ -338,17 +345,16 @@ window.onload = function () {
                         break;
 
 
-                        //demo video - intro
-                        case '8':
-                            console.log("demo");
-                            level = 8;
-                            for (let i = 0; i < s0.length; i++) {
-                                design(g0[i]);
-                                sum(g0[i][0], s0[i]);
-                            }
-                            addHint("31", "44", "45", 4, 2, 1);
-                            break
-                           
+                    //demo video - intro
+                    case '8':
+                        console.log("demo");
+                        level = 8;
+                        for (let i = 0; i < s0.length; i++) {
+                            design(g0[i]);
+                            sum(g0[i][0], s0[i]);
+                        }
+                        addHint("31", "44", "45", 4, 2, 1);
+                        break;
                 }
             })
         }
@@ -360,7 +366,7 @@ window.onload = function () {
     }
 
     let demo = new Level(8, pics[0]);
-    demo.add();
+  // demo.add();
 
     function checkSection(section, numbers) {
         let sum = 0, s = 0;
@@ -404,6 +410,14 @@ window.onload = function () {
                     if (checkSection(s6[i], g6[i])) val++;
                 }
                 break;
+
+            //demo
+            case 8:
+                for (let i = 0; i < 16; i++) {
+                    if (checkSection(s0[i], g0[i])) val++;
+                }
+                break;
+
         }
         let row0 = [], row1 = [], row2 = [], row3 = [], row4 = [], row5 = [];
         let col0 = [], col1 = [], col2 = [], col3 = [], col4 = [], col5 = [];
