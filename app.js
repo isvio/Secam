@@ -162,11 +162,38 @@ window.onload = function () {
             }
         }
         if (section.length === 4) {
+            if (section[0][0] === section[1][0] && section[1][0] === section[2][0] && section[2][0] === section[3][0]) {
+                document.getElementById(section[0]).style.borderRight = com;
+                document.getElementById(section[1]).style.borderLeft = com;
+                document.getElementById(section[1]).style.borderRight = com;
+                document.getElementById(section[2]).style.borderLeft = com;
+                document.getElementById(section[2]).style.borderRight = com;
+                document.getElementById(section[3]).style.borderLeft = com;
+            }
+
+
             if (section[0][1] === section[1][1] && section[1][0] === section[2][0] && section[2][0] === section[3][0]) {
                 if (section[0][0] < section[1][0] && section[2][1] > section[3][1] && section[3][1] < section[1][1]) {
                     border(section[1], section[2], section[0], section[1]);
                     document.getElementById(section[3]).style.borderRight = com;
                     document.getElementById(section[2]).style.borderLeft = com;
+                }
+            }
+            if (section[0][1] === section[1][1] && section[1][1] === section[2][1] && section[2][1] === section[3][0]) {
+                if (section[3][1] < section[2][1] && section[2][1] < section[1][0] && section[1][0] < section[0][0]) {
+                    border(section[1], section[3], section[2], section[2]);
+                    document.getElementById(section[1]).style.borderBottom = com;
+                    document.getElementById(section[0]).style.borderTop = com;
+                }
+            }
+        }
+        if (section.length === 5) {
+            if (section[0][1] === section[1][1] && section[1][1] === section[2][1] &&
+                section[2][0] === section[3][0] && section[3][0] === section[3][0]) {
+                if (section[0][0] < section[1][0] && section[1][0] < section[2][0] &&
+                    section[2][1] > section[3][1] && section[3][1] > section[4][1]) {
+                    border(section[2], section[4], section[1], section[2]);
+                    border(section[1], section[3], section[0], section[3]);
                 }
             }
         }
@@ -188,8 +215,12 @@ window.onload = function () {
     let g2 = [['00', '10'], ['01', '02'], ['03'], ['05', '15'], ['11', '21', '20'], ['12', '13'], ['04', '14', '24', '23', '22'], ['25'], ['30', '31'], ['32', '33', '34', '35'],
     ['51', '41', '40'], ['50'], ['42', '43'], ['44', '45'], ['52', '53', '54'], ['55']];
 
-    let pics = ["https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/VQkr1YL/g1.png", "https://i.ibb.co/4MJ40ZP/g0.png",
-        "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
+    let s3 = [9, 5, 9, 13, 12, 15, 12, 9, 7, 2, 10, 8, 12, 3];
+    let g3 = [['00', '10'], ['01', '11', '12'], ['02', '03'], ['24', '14', '13'], ['15', '05', '04'], ['20', '30', '31'], ['42', '32', '22', '21'], ['23', '33', '34'],
+    ['25', '35', '45'], ['50'], ['51', '41', '40'], ['43', '44'], ['52', '53', '54'], ['55']];
+
+    let pics = ["https://i.ibb.co/vV983dY/g0.png", "https://i.ibb.co/pvhTNWD/g1.png", "https://i.ibb.co/Fgmy5s5/g2.png",
+        "https://i.ibb.co/NKXNHFQ/g3.png", "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
     let levels_origin = document.getElementById("levels-origin");
     let levels = document.getElementById("levels");
 
@@ -233,6 +264,12 @@ window.onload = function () {
                         break;
                     case '3':
                         level = 3;
+                        for (let i = 0; i < 14; i++) {
+                            design(g3[i]);
+                            sum(g3[i][0], s3[i]);
+                        }
+                        addHint("51", "31", "32", 4, 6, 5);
+                        addHint("34", "35", "05", 3, 1, 6);
                         break;
                     case '4':
                         level = 4;
@@ -278,7 +315,7 @@ window.onload = function () {
                 }
                 break;
             case 3:
-                for (let i = 0; i < 16; i++) {
+                for (let i = 0; i < 14; i++) {
                     if (checkSection(s3[i], g3[i])) val++;
                 }
                 break;
