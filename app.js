@@ -196,16 +196,12 @@ window.onload = function () {
                 border(section[3], section[2], section[1], section[3]);
                 border(section[2], section[0], section[0], section[1]);
             }
-
-
-            if (section[0][0] === section[1][0] && section[1][1] === section[2][1] && section[2][0] === section[3][0] && 
-                section[0][0] === section[3][1] && section[0][1] < section[1][1]  && 
+            if (section[0][0] === section[1][0] && section[1][1] === section[2][1] && section[2][0] === section[3][0] &&
+                section[0][0] === section[3][1] && section[0][1] < section[1][1] &&
                 section[1][0] < section[2][0] && section[2][1] < section[3][1]) {
                 border(section[2], section[2], section[1], section[3]);
                 border(section[2], section[0], section[1], section[1]);
             }
-
-
         }
         if (section.length === 5) {
             if (section[0][1] === section[1][1] && section[1][1] === section[2][1] &&
@@ -242,12 +238,10 @@ window.onload = function () {
     let game = new Game();
     game.render();
 
-
     //demo
     let s0 = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
     let g0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
     ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
-
 
     //levels
     let s1 = [12, 10, 7, 8, 3, 7, 6, 9, 6, 4, 13, 9, 11, 14, 6, 1];
@@ -294,8 +288,7 @@ window.onload = function () {
                 switch (this.id) {
                     case '0':
                         level = 1;
-                        let alls1 = s1.length;
-                        for (let i = 0; i < alls1; i++) {
+                        for (let i = 0; i < 16; i++) {
                             design(g1[i]);
                             sum(g1[i][0], s1[i]);
                         }
@@ -304,8 +297,7 @@ window.onload = function () {
                         break;
                     case '1':
                         level = 2;
-                        let alls2 = s2.length;
-                        for (let i = 0; i < alls2; i++) {
+                        for (let i = 0; i < 16; i++) {
                             design(g2[i]);
                             sum(g2[i][0], s2[i]);
                         }
@@ -313,8 +305,7 @@ window.onload = function () {
                         break;
                     case '2':
                         level = 3;
-                        let alls3 = s3.length;
-                        for (let i = 0; i < alls3; i++) {
+                        for (let i = 0; i < 14; i++) {
                             design(g3[i]);
                             sum(g3[i][0], s3[i]);
                         }
@@ -323,8 +314,7 @@ window.onload = function () {
                         break;
                     case '3':
                         level = 4;
-                        let alls4 = s4.length;
-                        for (let i = 0; i < alls4; i++) {
+                        for (let i = 0; i < 15; i++) {
                             design(g4[i]);
                             sum(g4[i][0], s4[i]);
                         }
@@ -334,8 +324,7 @@ window.onload = function () {
                         break;
                     case '4':
                         level = 5;
-                        let alls5 = s5.length;
-                        for (let i = 0; i < alls5; i++) {
+                        for (let i = 0; i < 14; i++) {
                             design(g5[i]);
                             sum(g5[i][0], s5[i]);
                         }
@@ -343,8 +332,7 @@ window.onload = function () {
                         break;
                     case '5':
                         level = 6;
-                        let alls6 = s6.length;
-                        for (let i = 0; i < alls6; i++) {
+                        for (let i = 0; i < 14; i++) {
                             design(g6[i]);
                             sum(g6[i][0], s6[i]);
                         }
@@ -354,9 +342,8 @@ window.onload = function () {
 
                     //demo video - intro
                     case '8':
-                        console.log("demo");
                         level = 8;
-                        for (let i = 0; i < s0.length; i++) {
+                        for (let i = 0; i < 16; i++) {
                             design(g0[i]);
                             sum(g0[i][0], s0[i]);
                         }
@@ -387,32 +374,32 @@ window.onload = function () {
         let message = document.getElementById("result-game");
         let val = 0;
         switch (level) {
-            case 0:
+            case 1:
                 for (let i = 0; i < 16; i++) {
                     if (checkSection(s1[i], g1[i])) val++;
                 }
                 break;
-            case 1:
+            case 2:
                 for (let i = 0; i < 16; i++) {
                     if (checkSection(s2[i], g2[i])) val++;
                 }
                 break;
-            case 2:
-                for (let i = 0; i < 16; i++) {
-                    if (checkSection(s3[i], g3[i])) val++;
-                }
-                break;
             case 3:
                 for (let i = 0; i < 14; i++) {
-                    if (checkSection(s4[i], g4[i])) val++;
+                    if (checkSection(s3[i], g3[i])) val++;
                 }
                 break;
             case 4:
                 for (let i = 0; i < 15; i++) {
-                    if (checkSection(s5[i], g5[i])) val++;
+                    if (checkSection(s4[i], g4[i])) val++;
                 }
                 break;
             case 5:
+                for (let i = 0; i < 14; i++) {
+                    if (checkSection(s5[i], g5[i])) val++;
+                }
+                break;
+            case 6:
                 for (let i = 0; i < 14; i++) {
                     if (checkSection(s6[i], g6[i])) val++;
                 }
