@@ -186,11 +186,11 @@ sub {
 
 #finish-game {
     position: relative;
-    top: -3px;
-    left: calc((100vw - 100px)/2);
+    top: 2px;
+    left: calc((100vw - 80px)/2);
     width: 100px;
     margin: auto;
-    font-size: 22px !important;
+    font-size: 24px !important;
     color: rgb(192, 176, 176);
 }
 
@@ -267,6 +267,7 @@ sub {
 
     }
 }
+
 @media (min-width: 530px) {
     #levels {
         width: 500px;
