@@ -42,15 +42,6 @@ window.onload = function () {
         return obj;
     }
 
-    document.getElementById("help").addEventListener("click", function () {
-        let winh = document.getElementById("help-window");
-        if (winh.style.display === "none") {
-            winh.style.display = "block";
-        } else {
-            winh.style.display = "none";
-        }
-    })
-
     let digits_isOpen = false;
     let getDigit = (id) => {
         let cell = document.getElementById(id);
@@ -83,6 +74,17 @@ window.onload = function () {
             }
         }
     }
+
+    document.getElementById("help").addEventListener("click", function () {
+        let winh = document.getElementById("help-window");
+        if (!digits_isOpen) {
+            if(winh.style.display === "none") {
+                winh.style.display = "block";
+            } else {
+                winh.style.display = "none";
+            }
+        }
+    })
 
     class Game {
         constructor() {
