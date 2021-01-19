@@ -170,6 +170,8 @@ window.onload = function () {
                 document.getElementById(section[2]).style.borderRight = com;
                 document.getElementById(section[3]).style.borderLeft = com;
             }
+
+
             if (section[0][1] === section[1][1] && section[1][0] === section[2][0] && section[2][0] === section[3][0]) {
                 if (section[0][0] < section[1][0] && section[2][1] > section[3][1] && section[3][1] < section[1][1]) {
                     border(section[1], section[2], section[0], section[1]);
@@ -191,7 +193,22 @@ window.onload = function () {
                     document.getElementById(section[3]).style.borderTop = com;
                 }
             }
+            if (section[0][0] === section[1][0] && section[2][0] === section[3][0] && section[0][1] === section[2][1] && section[1][1] === section[3][1] &
+                section[0][0] < section[2][0] && section[1][0] < section[3][0] && section[0][0] < section[3][0] && section[0][1] < section[3][1]) {
+                border(section[3], section[2], section[1], section[3]);
+                border(section[2], section[0], section[0], section[1]);
+            }
+
+
+
+            if (section[0][0] === section[3][0] && section[1][0] === section[2][2] && section[0][1] === section[1][1] && section[2][1] === section[3][0]) {
+                border(section[1], section[1], section[0], section[2]);
+                border(section[1], section[3], section[0], section[0]);
+            }
         }
+
+
+
         if (section.length === 5) {
             if (section[0][1] === section[1][1] && section[1][1] === section[2][1] &&
                 section[2][0] === section[3][0] && section[3][0] === section[3][0]) {
@@ -202,16 +219,28 @@ window.onload = function () {
                 }
             }
         }
+        if (section.length === 6) {
+            if (section[0][0] === section[1][0] && section[1][0] === section[2][0] && section[2][1] === section[3][1] &&
+                section[3][1] === section[4][1] && section[4][0] === section[5][0] && section[3][0] === section[5][1]) {
+                border(section[2], section[2], section[3], section[1]);
+                border(section[3], section[5], section[4], section[4]);
+                document.getElementById(section[1]).style.borderRight = com;
+                document.getElementById(section[0]).style.borderLeft = com;
+            }
+        }
     }
 
     let game = new Game();
     game.render();
 
+
+    //demo
     let s0 = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
     let g0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
     ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
 
 
+    //levels
     let s1 = [12, 10, 7, 8, 3, 7, 6, 9, 6, 4, 13, 9, 11, 14, 6, 1];
     let g1 = [['00', '10', '20'], ['01', '11'], ['02', '12'], ['03', '04'], ['05'], ['21', '22'], ['13', '23'], ['25', '15', '14'], ['30', '40'], ['31', '41', '42'],
     ['24', '34', '33', '32'], ['43', '44'], ['35', '45'], ['50', '51', '52'], ['53', '54'], ['55']];
@@ -228,10 +257,16 @@ window.onload = function () {
     let g4 = [['00', '10', '11', '21'], ['01', '02'], ['03', '04'], ['05'], ['12', '22', '23'], ['13', '14', '15'], ['20', '30', '31'], ['43', '33', '32'],
     ['24', '34', '44'], ['25', '35', '45'], ['50'], ['51', '41', '40'], ['42', '52'], ['53', '54'], ['55']];
 
+    let s5 = [6, 5, 22, 9, 12, 12, 7, 11, 9, 9, 4, 4, 2, 14];
+    let g5 = [['00', '10'], ['11'], ['24', '23', '22', '12', '02', '01'], ['03', '13', '14'], ['15', '05', '04'], ['20', '21', '30', '31'], ['32', '33', '34'], ['25', '35'],
+    ['40', '41'], ['50', '51'], ['52'], ['44', '45'], ['55'], ['43', '53', '54', '42']];
 
+    let s6 = [10, 2, 14, 7, 9, 10, 17, 7, 2, 6, 21, 13, 1, 7];
+    let g6 = [['00', '01', '10', '11'], ['12'], ['13', '03', '02'], ['04', '05'], ['14', '15'], ['20', '30'], ['34', '24', '23', '22', '21'],
+    ['25', '35'], ['31'], ['40', '41'], ['50', '51', '52', '42', '32'], ['33', '43', '44'], ['45'], ['53', '54', '55']];
 
-    let pics = ["https://i.ibb.co/vV983dY/g0.png", "https://i.ibb.co/pvhTNWD/g1.png", "https://i.ibb.co/Fgmy5s5/g2.png",
-        "https://i.ibb.co/NKXNHFQ/g3.png", "https://i.ibb.co/PTSHf6c/g4.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
+    let pics = ["https://i.ibb.co/pvhTNWD/g1.png", "https://i.ibb.co/Fgmy5s5/g2.png", "https://i.ibb.co/NKXNHFQ/g3.png",
+        "https://i.ibb.co/PTSHf6c/g4.png", "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
     let levels_origin = document.getElementById("levels-origin");
     let levels = document.getElementById("levels");
 
@@ -249,14 +284,6 @@ window.onload = function () {
                 levels.style.display = "none";
                 switch (this.id) {
                     case '0':
-                        level = 0;
-                        for (let i = 0; i < 16; i++) {
-                            design(g0[i]);
-                            sum(g0[i][0], s0[i]);
-                        }
-                        addHint("31", "44", "45", 4, 2, 1);
-                        break;
-                    case '1':
                         level = 1;
                         for (let i = 0; i < 16; i++) {
                             design(g1[i]);
@@ -264,8 +291,9 @@ window.onload = function () {
                         }
                         createHint('10', 5);
                         createHint('33', 4);
+
                         break;
-                    case '2':
+                    case '1':
                         level = 2;
                         for (let i = 0; i < 16; i++) {
                             design(g2[i]);
@@ -273,28 +301,54 @@ window.onload = function () {
                         }
                         addHint("23", "35", "53", 6, 2, 1);
                         break;
-                    case '3':
+                    case '2':
                         level = 3;
-                        for (let i = 0; i < 14; i++) {
+                        for (let i = 0; i < 16; i++) {
                             design(g3[i]);
                             sum(g3[i][0], s3[i]);
                         }
                         addHint("51", "31", "32", 4, 6, 5);
                         addHint("34", "35", "05", 3, 1, 6);
                         break;
-                    case '4':
+                    case '3':
                         level = 4;
-                        for (let i = 0; i < 15; i++) {
+                        for (let i = 0; i < 14; i++) {
                             design(g4[i]);
                             sum(g4[i][0], s4[i]);
                         }
-                        addHint("21", "23", "33", 2, 6, 2);
-                        createHint('14', 5);
-                        createHint('44', 3);
+                          addHint("21", "23", "33", 2, 6, 2);
+                         createHint('14', 5);
+                         createHint('44', 3);
+                        break;
+                    case '4':
+                        level = 5;
+                        for (let i = 0; i < 15; i++) {
+                            design(g5[i]);
+                            sum(g5[i][0], s5[i]);
+                        }
+                        addHint("31", "22", "05", 3, 5, 3);
                         break;
                     case '5':
-                        level = 5;
+                        level = 6;
+                        for (let i = 0; i < 14; i++) {
+                            design(g6[i]);
+                            sum(g6[i][0], s6[i]);
+                        }
+                        addHint("11", "34", "55", 5, 6, 2);
                         break;
+
+
+                        //demo video - intro
+                        case '8':
+                            console.log("demo");
+                            level = 8;
+                            for (let i = 0; i < s0.length; i++) {
+                                design(g0[i]);
+                                sum(g0[i][0], s0[i]);
+                            }
+                            addHint("31", "44", "45", 4, 2, 1);
+                            break
+                           
                 }
             })
         }
@@ -304,6 +358,9 @@ window.onload = function () {
         let obj = new Level(i, pics[i]);
         obj.add();
     }
+
+    let demo = new Level(8, pics[0]);
+    demo.add();
 
     function checkSection(section, numbers) {
         let sum = 0, s = 0;
@@ -319,32 +376,32 @@ window.onload = function () {
         switch (level) {
             case 0:
                 for (let i = 0; i < 16; i++) {
-                    if (checkSection(s0[i], g0[i])) val++;
+                    if (checkSection(s1[i], g1[i])) val++;
                 }
                 break;
             case 1:
                 for (let i = 0; i < 16; i++) {
-                    if (checkSection(s1[i], g1[i])) val++;
+                    if (checkSection(s2[i], g2[i])) val++;
                 }
                 break;
             case 2:
                 for (let i = 0; i < 16; i++) {
-                    if (checkSection(s2[i], g2[i])) val++;
+                    if (checkSection(s3[i], g3[i])) val++;
                 }
                 break;
             case 3:
                 for (let i = 0; i < 14; i++) {
-                    if (checkSection(s3[i], g3[i])) val++;
-                }
-                break;
-            case 4:
-                for (let i = 0; i < 1; i++) {
                     if (checkSection(s4[i], g4[i])) val++;
                 }
                 break;
-            case 5:
-                for (let i = 0; i < 16; i++) {
+            case 4:
+                for (let i = 0; i < 15; i++) {
                     if (checkSection(s5[i], g5[i])) val++;
+                }
+                break;
+            case 5:
+                for (let i = 0; i < 14; i++) {
+                    if (checkSection(s6[i], g6[i])) val++;
                 }
                 break;
         }
