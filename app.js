@@ -269,7 +269,7 @@ window.onload = function () {
     ['25', '35'], ['31'], ['40', '41'], ['32', '42', '52', '51', '50'], ['33', '43', '44'], ['45'], ['53', '54', '55']];
 
     let pics = ["https://i.ibb.co/pvhTNWD/g1.png", "https://i.ibb.co/Fgmy5s5/g2.png", "https://i.ibb.co/NKXNHFQ/g3.png",
-        "https://i.ibb.co/PTSHf6c/g4.png", "https://i.ibb.co/4MJ40ZP/g0.png", "https://i.ibb.co/4MJ40ZP/g0.png"];
+        "https://i.ibb.co/PTSHf6c/g4.png", "https://i.ibb.co/G2QyHDy/g5.png", "https://i.ibb.co/vLvYZQJ/g6.png"];
     let levels_origin = document.getElementById("levels-origin");
     let levels = document.getElementById("levels");
 
