@@ -137,17 +137,18 @@ sub {
 
 .digits {
     display: grid;
-    width: 126px;
-    height: 84px;
-    grid-template-columns: repeat(3, 40px);
-    grid-template-rows: repeat(2, 40px);
+    width: 162px;
+    height: 109px;
+    padding: 3px;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(2, 50px);
     position: relative;
-    top: -350px;
-    gap: 2px;
+    top: -390px;
+    gap: 3px;
     margin: 50px auto;
     background-color: var(--primary-bakground);
     box-shadow: 2px 5px 20px 5px rgba(1, 2, 2, 0.3), 15px 10px 20px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
+    border-radius: 8px;
 }
 
 .digit {
