@@ -45,6 +45,7 @@ window.onload = function () {
     let digits_isOpen = false;
     let getDigit = (id) => {
         let cell = document.getElementById(id);
+        let g = document.getElementById("game");
         if (!g.classList.contains("finished")) {
             if (!digits_isOpen && !cell.classList.contains("hint")) {
                 g.style.opacity = ".5";
@@ -90,6 +91,8 @@ window.onload = function () {
         constructor() {
         }
         render() {
+            let g = document.getElementById("game");
+
             for (let i = 0; i < 6; i++) {
                 for (let j = 0; j < 6; j++) {
                     let cell = Div("item", i + "" + j);
@@ -235,9 +238,6 @@ window.onload = function () {
         }
     }
 
-    let game = new Game();
-    game.render();
-
     //demo
     let s0 = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
     let g0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
@@ -273,6 +273,31 @@ window.onload = function () {
     let levels_origin = document.getElementById("levels-origin");
     let levels = document.getElementById("levels");
 
+    let getLevel = () => {
+        let container = document.createElement("div");
+        let gg = document.createElement("div");
+        let reset = document.createElement("button");
+        let p = document.createElement("p");
+        p.setAttribute("id", "result-game");
+        reset.setAttribute("class", "btn");
+        reset.setAttribute("id", "reset");
+        reset.innerHTML = "Main menu";
+        gg.setAttribute("id", "game");
+        container.setAttribute("id", "container");
+        container.appendChild(gg);
+        container.appendChild(reset);
+        container.appendChild(p);
+        document.getElementsByTagName("body")[0].appendChild(container);
+        reset.addEventListener("click", function () {
+            if (!digits_isOpen) {
+                container.remove();
+                levels.style.display = "block";
+            }
+        })
+        let game = new Game();
+        game.render();
+    }
+
     let level;
     class Level {
         constructor(id, src) {
@@ -288,6 +313,7 @@ window.onload = function () {
                 switch (this.id) {
                     case '0':
                         level = 1;
+                        getLevel()
                         for (let i = 0; i < 16; i++) {
                             design(g1[i]);
                             sum(g1[i][0], s1[i]);
@@ -296,6 +322,7 @@ window.onload = function () {
                         createHint('33', 4);
                         break;
                     case '1':
+                        getLevel()
                         level = 2;
                         for (let i = 0; i < 16; i++) {
                             design(g2[i]);
@@ -304,6 +331,7 @@ window.onload = function () {
                         addHint("23", "35", "53", 6, 2, 1);
                         break;
                     case '2':
+                        getLevel()
                         level = 3;
                         for (let i = 0; i < 14; i++) {
                             design(g3[i]);
@@ -313,6 +341,7 @@ window.onload = function () {
                         addHint("34", "35", "05", 3, 1, 6);
                         break;
                     case '3':
+                        getLevel()
                         level = 4;
                         for (let i = 0; i < 15; i++) {
                             design(g4[i]);
@@ -323,6 +352,7 @@ window.onload = function () {
                         createHint('44', 3);
                         break;
                     case '4':
+                        getLevel()
                         level = 5;
                         for (let i = 0; i < 14; i++) {
                             design(g5[i]);
@@ -331,6 +361,7 @@ window.onload = function () {
                         addHint("31", "22", "05", 3, 5, 3);
                         break;
                     case '5':
+                        getLevel()
                         level = 6;
                         for (let i = 0; i < 14; i++) {
                             design(g6[i]);
@@ -338,10 +369,9 @@ window.onload = function () {
                         }
                         addHint("11", "34", "55", 5, 6, 2);
                         break;
-
-
                     //demo video - intro
                     case '8':
+                        getLevel()
                         level = 8;
                         for (let i = 0; i < 16; i++) {
                             design(g0[i]);
@@ -360,7 +390,7 @@ window.onload = function () {
     }
 
     let demo = new Level(8, pics[0]);
-     demo.add();
+    //  demo.add();
 
     function checkSection(section, numbers) {
         let sum = 0, s = 0;
