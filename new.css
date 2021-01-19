@@ -95,6 +95,7 @@ header p:first-child {
     width: 300px;
     height: 400px;
     margin: 80px auto;
+    text-align: center;
 }
 
 #game {
@@ -162,22 +163,29 @@ sub {
     Outline: none;
 }
 
-#finish-game {
+.btn {
     position: relative;
-    top: 20px;
-    margin: 30px;
     text-align: center;
     font-size: 16px;
     margin: 10px auto;
-    width: 100%;
+    width: 80%;
     font-weight: 500;
     border-radius: 10px;
     display: inline-block;
-    height: 30px;
+    height: 25px;
     border: none;
     color: #eeeeee;
     outline: none;
     background-color: var(--header);
+}
+
+#reset {
+    background-color: rgb(185, 129, 129);
+    top: 15px;
+}
+
+#finish-game {
+    top: 20px;
 }
 
 #help-window {
@@ -195,6 +203,7 @@ sub {
     font-size: 15px;
     text-align: center;
     font-weight: 600;
+    z-index: 2000;
 }
 
 #help-window img {
