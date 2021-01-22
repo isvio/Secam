@@ -92,7 +92,6 @@ window.onload = function () {
         }
         render() {
             let g = document.getElementById("game");
-
             for (let i = 0; i < 6; i++) {
                 for (let j = 0; j < 6; j++) {
                     let cell = Div("item", i + "" + j);
@@ -238,11 +237,6 @@ window.onload = function () {
         }
     }
 
-    //demo
-    let s0 = [13, 6, 4, 5, 3, 10, 11, 7, 10, 11, 5, 7, 13, 9, 6, 6];
-    let g0 = [['11', '01', '00'], ['02', '12'], ['03', '04'], ['05'], ['10', '20'], ['21', '31', '30'], ['22', '32', '33'],
-    ['13', '23'], ['14', '15'], ['24', '25'], ['45', '35', '34'], ['40', '41'], ['42', '43', '44'], ['50', '51'], ['52', '53'], ['54', '55']];
-
     //levels
     let s1 = [12, 10, 7, 8, 3, 7, 6, 9, 6, 4, 13, 9, 11, 14, 6, 1];
     let g1 = [['00', '10', '20'], ['01', '11'], ['02', '12'], ['03', '04'], ['05'], ['21', '22'], ['13', '23'], ['25', '15', '14'], ['30', '40'], ['31', '41', '42'],
@@ -369,16 +363,6 @@ window.onload = function () {
                         }
                         addHint("11", "34", "55", 5, 6, 2);
                         break;
-                    //demo video - intro
-                    case '8':
-                        getLevel()
-                        level = 8;
-                        for (let i = 0; i < 16; i++) {
-                            design(g0[i]);
-                            sum(g0[i][0], s0[i]);
-                        }
-                        addHint("31", "44", "45", 4, 2, 1);
-                        break;
                 }
             })
         }
@@ -389,11 +373,8 @@ window.onload = function () {
         obj.add();
     }
 
-    let demo = new Level(8, pics[0]);
-    //  demo.add();
-
     function checkSection(section, numbers) {
-        let sum = 0, s = 0;
+        let s = 0;
         for (let i = 0; i < numbers.length; i++) {
             s += parseInt(document.getElementById(numbers[i]).lastChild.innerHTML);
         }
@@ -434,14 +415,6 @@ window.onload = function () {
                     if (checkSection(s6[i], g6[i])) val++;
                 }
                 break;
-
-            //demo
-            case 8:
-                for (let i = 0; i < 16; i++) {
-                    if (checkSection(s0[i], g0[i])) val++;
-                }
-                break;
-
         }
         let row0 = [], row1 = [], row2 = [], row3 = [], row4 = [], row5 = [];
         let col0 = [], col1 = [], col2 = [], col3 = [], col4 = [], col5 = [];
@@ -463,7 +436,6 @@ window.onload = function () {
         for (let i = 5, j = 0; j < 6; j++) {
             row5.push(document.getElementById(i + "" + j).lastChild.innerHTML);
         }
-
         for (let j = 0, i = 0; i < 6; i++) {
             col0.push(document.getElementById(i + "" + j).lastChild.innerHTML);
         }
@@ -485,15 +457,14 @@ window.onload = function () {
         if (!hasDuplicates(row0) && !hasDuplicates(row1) && !hasDuplicates(row2)
             && !hasDuplicates(row3) && !hasDuplicates(row4) && !hasDuplicates(row5)
             && !hasDuplicates(col0) && !hasDuplicates(col1) && !hasDuplicates(col2)
-            && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)) {
-            if (val === 14 || val === 15 || val === 16) {
-                message.style.color = "#1b998b";
-                message.innerHTML = "Congratulations!!!";
-                g.classList.add("finished");
-            } else {
-                message.style.color = "#ff0f0f";
-                message.innerHTML = "Wrong! Try again...";
-            }
+            && !hasDuplicates(col3) && !hasDuplicates(col4) && !hasDuplicates(col5)
+            && (val === 14 || val === 15 || val === 16)) {
+            message.style.color = " rgb(58, 126, 58)";
+            message.innerHTML = "Congratulations!!!";
+            document.getElementById("game").classList.add("finished");
+        } else {
+            message.style.color = "rgb(153, 79, 79)";
+            message.innerHTML = "Wrong! Try again...";
         }
     })
 }
