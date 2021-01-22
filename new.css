@@ -226,7 +226,7 @@ sub {
     height: auto;
 }
 
-#help-window a {
+a {
     text-decoration: none;
     color:rgb(100, 117, 158);
 }
