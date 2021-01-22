@@ -226,6 +226,11 @@ sub {
     height: auto;
 }
 
+#help-window a {
+    text-decoration: none;
+    color:rgb(100, 117, 158);
+}
+
 @media (max-width: 600px) {
     #help-window img {
         width: 50%;
