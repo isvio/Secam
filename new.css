@@ -42,6 +42,7 @@ body, html {
     --header: rgb(78, 90, 117);
     --hint: rgb(112, 106, 106);
     --border: rgb(201, 195, 195);
+    --terrain:  rgb(58, 126, 58);
 }
 
 .light {
@@ -50,6 +51,7 @@ body, html {
     --header: rgb(78, 90, 117);
     --hint: rgb(172, 154, 154);
     --border: rgb(107, 97, 97);
+    --terrain:  rgb(37, 97, 37);
 }
 
 body, html {
@@ -144,7 +146,7 @@ sub {
     grid-template-columns: repeat(3, 50px);
     grid-template-rows: repeat(2, 50px);
     position: relative;
-    top: -390px;
+    top: -355px;
     gap: 3px;
     margin: 50px auto;
     background-color: var(--primary-bakground);
@@ -190,7 +192,7 @@ sub {
 #finish-game {
     position: relative;
     border-radius: 8px;
-    border-bottom: 8px solid rgb(43, 90, 43);
+    border-bottom: 8px solid var(--terrain);
     top: 400px;
     left: calc((100vw - 80px)/2);
     width: 60px;
